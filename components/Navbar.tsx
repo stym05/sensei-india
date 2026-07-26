@@ -8,6 +8,7 @@ import { site } from "@/data/site";
 
 const links = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
   { label: "Find Tutors", href: "/find-tutors" },
   { label: "Register", href: "/register" },
@@ -46,7 +47,7 @@ export default function Navbar() {
 
               <span
                 aria-hidden="true"
-                className="absolute inset-0 translate-y-full bg-gradient-to-br from-sky-400 to-indigo-600 transition-transform duration-300 group-hover:translate-y-0"
+                className="absolute inset-0 translate-y-full bg-linear-to-br from-sky-400 to-indigo-600 transition-transform duration-300 group-hover:translate-y-0"
               />
             </span>
 
@@ -97,28 +98,40 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMenuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
-            onClick={() => setIsMenuOpen((current) => !current)}
+            onClick={() =>
+              setIsMenuOpen((current) => !current)
+            }
             className="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-950 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
           >
             <span className="relative h-5 w-6">
               <span
                 className={`absolute left-0 top-0.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
-                  isMenuOpen ? "translate-y-2 rotate-45" : ""
+                  isMenuOpen
+                    ? "translate-y-2 rotate-45"
+                    : ""
                 }`}
               />
 
               <span
                 className={`absolute left-0 top-2.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
-                  isMenuOpen ? "scale-x-0 opacity-0" : ""
+                  isMenuOpen
+                    ? "scale-x-0 opacity-0"
+                    : ""
                 }`}
               />
 
               <span
-                className={`absolute left-0 top-[18px] h-0.5 w-6 rounded-full bg-current transition duration-300 ${
-                  isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                className={`absolute left-0 top-4.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
+                  isMenuOpen
+                    ? "-translate-y-2 -rotate-45"
+                    : ""
                 }`}
               />
             </span>
@@ -145,7 +158,9 @@ export default function Navbar() {
                       key={href}
                       href={href}
                       onClick={closeMenu}
-                      aria-current={isActive ? "page" : undefined}
+                      aria-current={
+                        isActive ? "page" : undefined
+                      }
                       className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-semibold transition ${
                         isActive
                           ? "bg-sky-50 text-sky-700"
