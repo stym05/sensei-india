@@ -19,31 +19,34 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActiveLink = (href: string) => {
+  function isActiveLink(href: string) {
     if (href === "/") {
       return pathname === "/";
     }
 
     return pathname.startsWith(href);
-  };
+  }
 
-  const closeMenu = () => setIsMenuOpen(false);
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
       <nav
         aria-label="Main navigation"
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
       >
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           {/* Brand */}
           <Link
             href="/"
             onClick={closeMenu}
-            className="group flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4"
+            aria-label={`${site.name} home`}
+            className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-3"
           >
-            <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-2xl bg-slate-950 text-lg font-black text-white shadow-lg shadow-slate-300 transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
-              <span className="relative z-10">B</span>
+            <span className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl bg-slate-950 text-sm font-black text-white shadow-md shadow-slate-300 transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
+              <span className="relative z-10">SI</span>
 
               <span
                 aria-hidden="true"
@@ -51,13 +54,13 @@ export default function Navbar() {
               />
             </span>
 
-            <span className="text-xl font-black tracking-tight text-slate-950 sm:text-2xl">
+            <span className="font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-xl">
               {site.name}
             </span>
           </Link>
 
           {/* Desktop navigation */}
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-0.5 md:flex">
             {links.map(({ label, href }) => {
               const isActive = isActiveLink(href);
 
@@ -66,7 +69,7 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group relative rounded-full px-4 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
+                  className={`group relative rounded-full px-3.5 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
                     isActive
                       ? "bg-sky-50 text-sky-700"
                       : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
@@ -76,7 +79,7 @@ export default function Navbar() {
 
                   <span
                     aria-hidden="true"
-                    className={`absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded-full bg-sky-500 transition-transform duration-300 ${
+                    className={`absolute inset-x-3.5 -bottom-px h-0.5 origin-left rounded-full bg-sky-500 transition-transform duration-300 ${
                       isActive
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -90,7 +93,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/register"
-            className="hidden rounded-full bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 md:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-sky-500 px-4.5 py-2.5 text-sm font-bold text-white shadow-md shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 md:inline-flex"
           >
             Enroll Now
           </Link>
@@ -108,19 +111,19 @@ export default function Navbar() {
             onClick={() =>
               setIsMenuOpen((current) => !current)
             }
-            className="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-950 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
           >
-            <span className="relative h-5 w-6">
+            <span className="relative h-4 w-5">
               <span
-                className={`absolute left-0 top-0.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition duration-300 ${
                   isMenuOpen
-                    ? "translate-y-2 rotate-45"
+                    ? "translate-y-1.75 rotate-45"
                     : ""
                 }`}
               />
 
               <span
-                className={`absolute left-0 top-2.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
+                className={`absolute left-0 top-1.75 h-0.5 w-5 rounded-full bg-current transition duration-300 ${
                   isMenuOpen
                     ? "scale-x-0 opacity-0"
                     : ""
@@ -128,9 +131,9 @@ export default function Navbar() {
               />
 
               <span
-                className={`absolute left-0 top-4.5 h-0.5 w-6 rounded-full bg-current transition duration-300 ${
+                className={`absolute left-0 top-3.5 h-0.5 w-5 rounded-full bg-current transition duration-300 ${
                   isMenuOpen
-                    ? "-translate-y-2 -rotate-45"
+                    ? "-translate-y-1.75 -rotate-45"
                     : ""
                 }`}
               />
@@ -143,13 +146,13 @@ export default function Navbar() {
           id="mobile-navigation"
           className={`grid overflow-hidden transition-all duration-300 ease-out md:hidden ${
             isMenuOpen
-              ? "grid-rows-[1fr] pb-5 opacity-100"
+              ? "grid-rows-[1fr] pb-4 opacity-100"
               : "grid-rows-[0fr] opacity-0"
           }`}
         >
           <div className="min-h-0">
-            <div className="rounded-3xl border border-slate-200 bg-white p-3 shadow-xl shadow-slate-200/50">
-              <div className="flex flex-col gap-1">
+            <div className="rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl shadow-slate-200/50">
+              <div className="flex flex-col gap-0.5">
                 {links.map(({ label, href }) => {
                   const isActive = isActiveLink(href);
 
@@ -161,7 +164,7 @@ export default function Navbar() {
                       aria-current={
                         isActive ? "page" : undefined
                       }
-                      className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-semibold transition ${
+                      className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
                         isActive
                           ? "bg-sky-50 text-sky-700"
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
@@ -187,7 +190,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 onClick={closeMenu}
-                className="mt-3 flex w-full items-center justify-center rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                className="mt-2 flex w-full items-center justify-center rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
               >
                 Enroll Now
               </Link>

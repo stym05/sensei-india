@@ -59,7 +59,8 @@ export default function Footer() {
               className="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950"
             >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-sky-500 font-(family-name:--font-sora) text-base font-bold text-white transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
-                {brandInitial}
+                <span className="relative z-10">SI</span>
+
               </span>
 
               <span className="font-(family-name:--font-sora) text-xl font-bold tracking-tight">

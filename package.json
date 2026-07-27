@@ -12,6 +12,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "country-state-city": "^3.2.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
