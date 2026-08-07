@@ -4,9 +4,9 @@ import { site } from "@/data/site";
 
 const exploreLinks = [
   { label: "About Us", href: "/about" },
-  { label: "Courses", href: "/courses" },
+  { label: "Programmes", href: "/courses" },
   { label: "Find Tutors", href: "/find-tutors" },
-  { label: "Register", href: "/register" },
+  { label: "Learning Enquiry", href: "/register" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -69,8 +69,8 @@ export default function Footer() {
             </Link>
 
             <p className="mt-4 max-w-md text-sm leading-6 text-slate-400">
-              {site.tagline} Discover experienced tutors, structured courses
-              and personalised learning support.
+              {site.tagline} Explore school subjects, international curricula,
+              entrance preparation and future skills with experienced educators.
             </p>
 
             <div className="mt-4 flex flex-col gap-1.5 text-sm">

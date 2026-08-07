@@ -354,12 +354,6 @@ export default function RegisterForm() {
     event.preventDefault();
 
     const form = event.currentTarget;
-    const formData = new FormData(form);
-    const registrationData = Object.fromEntries(formData.entries());
-
-    // Replace this with your API route or server action.
-    console.log("Student registration:", registrationData);
-
     setSubmitted(true);
     setCountryCode("");
     setSelectedBoard("");
@@ -380,17 +374,17 @@ export default function RegisterForm() {
           </div>
 
           <p className="mt-6 text-sm font-extrabold uppercase tracking-[0.16em] text-emerald-700">
-            Registration submitted
+            Enquiry submitted
           </p>
 
           <h2 className="mt-2 font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-            Your learning enquiry has been received
+            Thank you—your learning enquiry has been received
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-600">
-            Thank you for registering with Sensei India. Our team will review
-            your location, curriculum, course and tutor preferences before
-            contacting you with suitable learning options.
+            Our academic team will review the learner’s curriculum, subject,
+            time zone and preferences, then contact you to discuss a suitable
+            tutor and demo session.
           </p>
 
           <button
@@ -398,7 +392,7 @@ export default function RegisterForm() {
             onClick={() => setSubmitted(false)}
             className="mt-7 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
-            Submit another registration
+            Submit another enquiry
           </button>
         </div>
       </div>
@@ -410,17 +404,17 @@ export default function RegisterForm() {
       <div className="mb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-2 text-xs font-bold text-primary-700">
           <span aria-hidden="true">🌍</span>
-          Worldwide student registration
+          Worldwide tutoring enquiry
         </div>
 
         <h2 className="mt-4 font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-          Find the right tutor for your learning goals
+          Help us understand the learner
         </h2>
 
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
-          Students from any country can register with Sensei India. Share your
-          curriculum, course, location and learning preferences to receive
-          suitable tutor recommendations.
+          Sensei India welcomes learners from every country. These details help
+          our India-based team recommend an educator who fits the curriculum,
+          goals, language and preferred schedule.
         </p>
       </div>
 
@@ -429,7 +423,7 @@ export default function RegisterForm() {
           <FormSectionHeading
             number="01"
             title="Student information"
-            description="Basic contact information for the student or guardian."
+            description="Contact details for the learner or the parent or guardian managing the enquiry."
           />
         </div>
 
@@ -583,7 +577,7 @@ export default function RegisterForm() {
           <FormSectionHeading
             number="02"
             title="Academic information"
-            description="Tell us about the student's present education level and curriculum."
+            description="Tell us about the learner’s current education level, curriculum and academic context."
           />
         </div>
 
@@ -650,8 +644,8 @@ export default function RegisterForm() {
         <div className="mt-4 md:col-span-2">
           <FormSectionHeading
             number="03"
-            title="Course and tutor preferences"
-            description="Choose what the student wants to study and how they prefer to learn."
+            title="Subject and tutor preferences"
+            description="Choose what the learner wants to study and the teaching format that suits them."
           />
         </div>
 
@@ -780,7 +774,7 @@ export default function RegisterForm() {
             id="learning-goal"
             name="message"
             rows={5}
-            placeholder="Mention subjects, target exams, current difficulties, preferred tutor experience, budget or any special requirements."
+            placeholder="Mention subjects, target exams, current difficulties, preferred tutor experience or any special learning requirements."
             className={`${fieldStyles} min-h-36 resize-y`}
           />
         </div>
@@ -821,7 +815,7 @@ export default function RegisterForm() {
           type="submit"
           className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 py-4 text-sm font-bold text-white shadow-md shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-200 sm:w-fit sm:justify-self-center md:col-span-2"
         >
-          Submit Student Registration
+          Send Learning Enquiry
 
           <span
             aria-hidden="true"
@@ -832,8 +826,8 @@ export default function RegisterForm() {
         </button>
 
         <p className="text-center text-xs leading-5 text-slate-500 md:col-span-2">
-          Your information will only be used to process your course or tutor
-          enquiry.
+          Your information will be used to review this enquiry, recommend
+          suitable tutors and contact you about the next steps.
         </p>
       </form>
     </div>

@@ -2,9 +2,9 @@ import RegisterForm from "@/components/RegisterForm";
 import SectionTitle from "@/components/SectionTitle";
 
 const registrationBenefits = [
-  "Personal course guidance",
-  "Flexible learning modes",
-  "Demo class assistance",
+  "Worldwide online tutoring",
+  "Curriculum-aware matching",
+  "Demo session support",
 ];
 
 export default function RegisterPage() {
@@ -22,9 +22,9 @@ export default function RegisterPage() {
 
       <section className="px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          eyebrow="Student Registration"
-          title="Start your learning journey with the right guidance"
-          text="Share your academic goals and learning preferences, and our team will help you find a suitable course, tutor or training programme."
+          eyebrow="Learning Enquiry"
+          title="Tell us what the learner needs"
+          text="Students and families worldwide can share their curriculum, subject, goals and schedule. Our India-based team will recommend a suitable tutor and arrange the next step."
         />
 
         <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -50,8 +50,8 @@ export default function RegisterPage() {
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-5 text-slate-500">
-          Submitting this form does not confirm admission or require payment.
-          Our team will contact you to discuss the available options.
+          Submitting an enquiry does not confirm enrolment or require payment.
+          Programme details and applicable fees are discussed during counselling.
         </p>
       </section>
     </main>

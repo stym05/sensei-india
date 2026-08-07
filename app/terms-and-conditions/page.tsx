@@ -1,14 +1,14 @@
 import SectionTitle from "@/components/SectionTitle";
 import { site } from "@/data/site";
 
-const lastUpdated = "27 July 2026";
+const lastUpdated = "7 August 2026";
 
 const terms = [
   {
     id: "acceptance",
     number: "01",
     title: "Acceptance of Terms",
-    body: `By accessing, browsing, registering with, or otherwise using ${site.name}, you confirm that you have read, understood, and agreed to comply with these Terms and Conditions, our Privacy Policy, and any additional policies applicable to the services offered through the platform.`,
+    body: `By accessing, browsing, submitting an enquiry to, registering with, or otherwise using ${site.name}, you agree to these Terms and Conditions, our Privacy Policy, and any service-specific conditions communicated before enrolment. These terms apply to users in India and to international learners accessing tutoring coordinated from India.`,
   },
   {
     id: "eligibility",
@@ -19,14 +19,14 @@ const terms = [
   {
     id: "registration",
     number: "03",
-    title: "Student Registration",
+    title: "Learning Enquiries and Registration",
     body: `Students, parents, and guardians must provide complete, accurate, and current information while submitting a registration or enquiry. ${site.name} may contact the student or guardian to verify the submitted information, understand the student's academic requirements, and recommend suitable tutors, courses, or learning programmes.`,
   },
   {
     id: "tutor-information",
     number: "04",
     title: "Tutor Profiles and Information",
-    body: `Tutor qualifications, experience, subjects, fees, ratings, schedules, teaching modes, and availability are presented to help users make informed decisions. Although reasonable efforts may be taken to review tutor information, users should independently evaluate all relevant details before confirming a tutor or learning arrangement.`,
+    body: `Tutor profiles describe subjects, experience, teaching modes, languages and availability to support informed matching. Recommendations are based on the information supplied in an enquiry and remain subject to tutor availability, a demo or introductory discussion, and final confirmation by the learner or guardian.`,
   },
   {
     id: "enrolment",
@@ -38,13 +38,13 @@ const terms = [
     id: "classes",
     number: "06",
     title: "Classes and Learning Arrangements",
-    body: `Class schedules, teaching methods, learning modes, course duration, and academic expectations will be communicated before the learning arrangement begins. Students are responsible for attending scheduled sessions on time, completing assigned work, and maintaining the equipment and internet connection required for online classes.`,
+    body: `Class schedules, time zones, teaching methods, learning modes, programme duration and academic expectations will be communicated before lessons begin. Learners are responsible for attending on time, completing agreed work and maintaining the equipment and internet connection needed for online tutoring.`,
   },
   {
     id: "payments",
     number: "07",
     title: "Fees and Payments",
-    body: `Course fees, tutor charges, payment schedules, taxes, promotional offers, and any additional costs will be communicated before enrolment or booking confirmation. A service will be considered confirmed only after the required payment and verification process has been completed.`,
+    body: `Course fees and tutor charges are not listed on the website. They are determined after an enquiry and counselling discussion based on the student's learning requirements, selected programme, tutor arrangement, schedule, and mode of learning. All applicable charges and payment terms will be communicated before enrolment or booking confirmation.`,
   },
   {
     id: "cancellations",
@@ -98,7 +98,7 @@ const terms = [
     id: "governing-law",
     number: "16",
     title: "Governing Law and Disputes",
-    body: `These Terms and Conditions will be governed by the laws applicable to ${site.name}. Any dispute arising from the use of the platform or its services should first be raised with our support team so that a reasonable resolution may be attempted.`,
+    body: `These Terms and Conditions are governed by applicable laws in India. Any concern arising from the website or tutoring services should first be raised with our support team so the parties can attempt a reasonable resolution. Mandatory consumer rights in a learner’s country of residence remain unaffected where applicable.`,
   },
 ];
 
@@ -113,8 +113,8 @@ export default function TermsPage() {
       <div className="relative mx-auto max-w-6xl">
         <SectionTitle
           eyebrow="Terms & Conditions"
-          title="Terms governing the use of Sensei India"
-          text={`Please review these terms carefully before accessing ${site.name}, submitting a registration, selecting a tutor, or enrolling in an educational service.`}
+          title="Terms for learning with Sensei India"
+          text={`Please review these terms before using ${site.name}, submitting an enquiry, attending a demo or beginning a tutoring arrangement from India or overseas.`}
         />
 
         <section className="mt-10 overflow-hidden rounded-4xl border border-primary-100 bg-white shadow-xl shadow-primary-100/50">
@@ -130,8 +130,8 @@ export default function TermsPage() {
 
               <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
                 These terms explain the rights, responsibilities, and
-                conditions that apply to students, parents, guardians, tutors,
-                and other users of our educational platform.
+                conditions that apply to learners, parents, guardians, tutors
+                and international families using our education services.
               </p>
             </div>
 

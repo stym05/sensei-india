@@ -22,7 +22,6 @@ type TutorProfile = {
   mode: string;
   bio: string;
   experience: string;
-  price: string;
   rating: number | string;
   photo?: string;
   qualification?: string;
@@ -123,19 +122,19 @@ export default function TutorSearch() {
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-600 sm:text-sm">
-                Tutor directory
+                Educator directory
               </p>
 
               <h2
                 id="tutor-search-heading"
                 className="mt-2 font-(family-name:--font-sora) text-xl font-bold tracking-tight text-slate-950 sm:text-2xl"
               >
-                Find the right tutor
+                Explore tutors by learning need
               </h2>
 
               <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
-                Search verified tutor profiles by subject,
-                location and preferred learning mode.
+                Search by subject, teaching mode or location. For international
+                curricula, share the exact requirement in your enquiry.
               </p>
             </div>
 
@@ -174,7 +173,7 @@ export default function TutorSearch() {
                   onChange={(event) =>
                     setQuery(event.target.value)
                   }
-                  placeholder="Name, subject or city..."
+                  placeholder="Tutor name, subject or location..."
                   className={`${fieldStyles} pl-12 pr-11`}
                 />
 
@@ -340,8 +339,8 @@ export default function TutorSearch() {
           </h3>
 
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">
-            Try changing your search term, learning
-            mode or location to discover more tutors.
+            Try a different subject, teaching mode or location. You can also
+            send an enquiry for a personalised tutor match.
           </p>
 
           <button
@@ -483,17 +482,7 @@ function TutorCard({
         </div>
 
         <div className="mt-auto pt-5">
-          <div className="mb-4 flex items-end justify-between border-t border-slate-100 pt-5">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
-                Starting from
-              </p>
-
-              <p className="mt-1 font-(family-name:--font-sora) text-lg font-bold text-slate-950">
-                {tutor.price}
-              </p>
-            </div>
-
+          <div className="mb-4 flex justify-end border-t border-slate-100 pt-5">
             <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
               Demo available
             </span>
@@ -503,7 +492,7 @@ function TutorCard({
             href={registrationHref}
             className="group/button inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
-            Book Demo Class
+            Enquire For DEMO
 
             <span
               aria-hidden="true"

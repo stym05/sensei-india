@@ -9,9 +9,9 @@ import { site } from "@/data/site";
 const links = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Courses", href: "/courses" },
+  { label: "Programmes", href: "/courses" },
   { label: "Find Tutors", href: "/find-tutors" },
-  { label: "Register", href: "/register" },
+  { label: "Enquire", href: "/register" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -95,7 +95,7 @@ export default function Navbar() {
             href="/register"
             className="hidden items-center justify-center rounded-full bg-primary-500 px-4.5 py-2.5 text-sm font-bold text-white shadow-md shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 md:inline-flex"
           >
-            Enroll Now
+            Request Demo
           </Link>
 
           {/* Mobile menu button */}
@@ -192,7 +192,7 @@ export default function Navbar() {
                 onClick={closeMenu}
                 className="mt-2 flex w-full items-center justify-center rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               >
-                Enroll Now
+                Request Demo
               </Link>
             </div>
           </div>

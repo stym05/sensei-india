@@ -4,16 +4,16 @@ import Link from "next/link";
 import TutorSearch from "@/components/TutorSearch";
 
 const heroProof = [
-  { icon: "✓", value: "Verified", label: "Educator profiles", position: "left-[5%] top-[15%]" },
-  { icon: "★", value: "4.9/5", label: "Average tutor rating", position: "left-[8%] bottom-[16%]" },
-  { icon: "◷", value: "Flexible", label: "Online & offline", position: "right-[5%] top-[16%]" },
-  { icon: "▷", value: "Free demo", label: "Before you enroll", position: "right-[8%] bottom-[15%]" },
+  { icon: "✓", value: "Experienced", label: "Subject educators", position: "left-[5%] top-[15%]" },
+  { icon: "◎", value: "Goal-led", label: "Tutor matching", position: "left-[8%] bottom-[16%]" },
+  { icon: "◷", value: "Time-zone ready", label: "Worldwide online lessons", position: "right-[5%] top-[16%]" },
+  { icon: "▷", value: "Demo first", label: "Meet before enrolling", position: "right-[8%] bottom-[15%]" },
 ];
 
 const searchBenefits = [
-  "Verified educators",
-  "Online, offline and hybrid",
-  "Subject-based matching",
+  "Experienced educators",
+  "Worldwide online lessons",
+  "Curriculum-based matching",
 ];
 
 export default function FindTutorsPage() {
@@ -60,27 +60,28 @@ export default function FindTutorsPage() {
           <div className="relative z-10 mx-auto flex min-h-116 max-w-xl flex-col items-center justify-center px-5 pb-24 pt-12 text-center sm:min-h-128 sm:px-8 sm:pb-28 lg:min-h-136">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-primary-100 backdrop-blur-md sm:text-xs">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_5px_rgba(52,211,153,.12)]" />
-              Tutor search
+              Global tutor network
             </div>
 
             <h1
               id="find-tutors-heading"
               className="mt-5 font-(family-name:--font-sora) text-[2rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-white sm:text-[2.65rem] lg:text-5xl"
             >
-              The right tutor can change{" "}
-              <span className="text-primary-200">everything.</span>
+              Find a tutor who understands{" "}
+              <span className="text-primary-200">how you learn.</span>
             </h1>
 
             <p className="mt-4 max-w-lg text-[13px] leading-6 text-white/70 sm:text-sm sm:leading-7">
-              Search expert educators by subject, learning mode and location,
-              then book a demo with the tutor who fits your goals.
+              Connect with India-based educators for school subjects,
+              international curricula, entrance exams and future skills—wherever
+              you live.
             </p>
 
             <a
               href="#tutor-directory"
               className="group mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-[13px] font-extrabold text-primary-500 shadow-xl shadow-black/20 transition duration-300 hover:-translate-y-1 hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:px-6 sm:text-sm"
             >
-              Explore tutors
+              Explore Educators
               <span aria-hidden="true" className="transition-transform group-hover:translate-y-1">↓</span>
             </a>
 
@@ -107,16 +108,16 @@ export default function FindTutorsPage() {
           <div className="relative flex flex-col items-start justify-between gap-7 lg:flex-row lg:items-center">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-200">
-                Personal matching support
+                Academic matching support
               </p>
 
               <h2 className="mt-2 font-(family-name:--font-sora) text-xl font-bold tracking-tight sm:text-2xl">
-                Not sure which tutor to choose?
+                Let us shortlist the right educators.
               </h2>
 
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/65">
-                Tell us your class, subject and preferred learning mode. Our
-                team will shortlist suitable educators for you.
+                Share the learner’s curriculum, subject, time zone and goals.
+                Our counsellor will recommend suitable tutors for a demo.
               </p>
             </div>
 

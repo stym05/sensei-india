@@ -13,7 +13,6 @@ export default function ContactForm() {
 
     const form = event.currentTarget;
 
-    // Replace this with your API route or server action.
     setSent(true);
     form.reset();
   }
@@ -32,16 +31,16 @@ export default function ContactForm() {
     >
       <div className="mb-7">
         <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
-          Contact us
+          Academic enquiry
         </p>
 
         <h2 className="mt-2 font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-          How can we help?
+          Tell us what support you need
         </h2>
 
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          Share your query and our team will get back to you as soon as
-          possible.
+          Include the learner’s curriculum, subject, level, country and
+          preferred schedule so our team can respond thoughtfully.
         </p>
       </div>
 
@@ -59,10 +58,11 @@ export default function ContactForm() {
           </span>
 
           <div>
-            <p className="font-bold">Message submitted successfully.</p>
+            <p className="font-bold">Thank you. We have received your enquiry.</p>
 
             <p className="mt-1 text-emerald-700">
-              Connect this form to your backend to start receiving enquiries.
+              Our academic team will review your message and contact you about
+              suitable next steps.
             </p>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function ContactForm() {
             id="contact-subject"
             name="subject"
             type="text"
-            placeholder="What is your enquiry about?"
+            placeholder="Subject, curriculum or tutoring requirement"
             className={fieldStyles}
           />
         </div>
@@ -140,7 +140,7 @@ export default function ContactForm() {
             name="message"
             required
             rows={6}
-            placeholder="Tell us how we can help you..."
+            placeholder="Tell us about the learner’s goals, current level, country and preferred lesson times..."
             className={`${fieldStyles} min-h-36 resize-y`}
           />
         </div>
@@ -149,7 +149,7 @@ export default function ContactForm() {
           type="submit"
           className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-slate-300/60 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-200"
         >
-          Send Message
+          Send Enquiry
 
           <span
             aria-hidden="true"
@@ -160,8 +160,8 @@ export default function ContactForm() {
         </button>
 
         <p className="text-center text-xs leading-5 text-slate-500">
-          By submitting this form, you agree to be contacted regarding your
-          enquiry.
+          By submitting this form, you agree to be contacted about tutoring
+          support and enrolment options.
         </p>
       </div>
     </form>

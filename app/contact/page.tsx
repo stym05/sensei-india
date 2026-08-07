@@ -32,8 +32,8 @@ export default function ContactPage() {
     <main className="overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionTitle
         eyebrow="Contact"
-        title="Need help choosing a tutor or course?"
-        text="Connect with our admissions team for course guidance, batch schedules, fees, demo classes and tutor recommendations."
+        title="Let’s understand your learning goals"
+        text="Whether you are in India or overseas, our academic team can help with tutor matching, curriculum support, demo sessions and enrolment guidance."
       />
 
       <section
@@ -58,12 +58,13 @@ export default function ContactPage() {
             </p>
 
             <h2 className="mt-3 font-(family-name:--font-sora) text-3xl font-bold tracking-tight sm:text-4xl">
-              We&apos;re here to guide you.
+              Start with a conversation.
             </h2>
 
             <p className="mt-4 max-w-md text-sm leading-7 text-slate-300">
-              Tell us about your learning goals and our team will help you find
-              the most suitable tutor, course or study plan.
+              Share the learner’s curriculum, subject, current challenges and
+              time zone. We will guide you towards a suitable tutor and next
+              step.
             </p>
 
             <div className="mt-8 grid gap-3">
@@ -113,12 +114,12 @@ export default function ContactPage() {
 
             <div className="mt-8 rounded-3xl border border-primary-400/20 bg-primary-400/10 p-5">
               <p className="font-(family-name:--font-sora) font-bold text-white">
-                Looking for a demo class?
+                Requesting a demo from overseas?
               </p>
 
               <p className="mt-2 text-sm leading-6 text-primary-100">
-                Mention your class, subject and preferred learning mode in the
-                enquiry form for faster assistance.
+                Include the learner’s country, curriculum, subject and preferred
+                time so we can coordinate the right educator.
               </p>
             </div>
           </div>

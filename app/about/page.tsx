@@ -5,37 +5,37 @@ import SectionTitle from "@/components/SectionTitle";
 const values = [
   {
     number: "01",
-    title: "Student-first learning",
-    text: "Every course and tutor match is designed around the student’s level, goals and preferred learning style.",
+    title: "Learner-first teaching",
+    text: "Every recommendation begins with the learner’s curriculum, current understanding, goals and preferred way of learning.",
   },
   {
     number: "02",
-    title: "Trusted guidance",
-    text: "Students and parents receive clear support while choosing tutors, courses, batches and learning modes.",
+    title: "Indian roots, global reach",
+    text: "Our India-based team coordinates online tutoring for families worldwide while respecting local curricula and time zones.",
   },
   {
     number: "03",
-    title: "Visible progress",
-    text: "Regular assessments, feedback and progress reports make academic improvement easier to understand.",
+    title: "Consistent partnership",
+    text: "Clear communication, purposeful practice and regular feedback keep learners, families and tutors aligned.",
   },
 ];
 
 const learningJourney = [
   {
     title: "Discover",
-    text: "Explore tutors and courses based on subject, class, exam and location.",
+    text: "Share the learner’s curriculum, subject, current level, goals and availability.",
   },
   {
     title: "Connect",
-    text: "Speak with our team and discuss your learning requirements.",
+    text: "Our academic team reviews the requirement and recommends a suitable educator.",
   },
   {
     title: "Experience",
-    text: "Attend a demo class before selecting the right tutor or program.",
+    text: "Attend a demo to experience the tutor’s communication and teaching approach.",
   },
   {
     title: "Progress",
-    text: "Learn consistently with tests, feedback and performance tracking.",
+    text: "Follow a structured plan with practice, feedback and periodic learning reviews.",
   },
 ];
 
@@ -54,8 +54,8 @@ export default function AboutPage() {
 
       <SectionTitle
         eyebrow="About Us"
-        title="A learning platform built around clarity, care and measurable progress"
-        text="Sensei India connects students with experienced tutors and structured learning programmes designed to make quality coaching easier to discover and access."
+        title="An Indian academy helping learners succeed worldwide"
+        text="Sensei India connects school students and lifelong learners with experienced educators for personalised, curriculum-aware tutoring across countries and time zones."
       />
 
       {/* Introduction */}
@@ -72,27 +72,29 @@ export default function AboutPage() {
             id="about-introduction-heading"
             className="mt-3 font-(family-name:--font-sora) text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-950 sm:text-4xl"
           >
-            Making coaching simpler for students and more transparent for
-            parents.
+            Personalised teaching should feel accessible, dependable and
+            genuinely human.
           </h2>
 
           <div className="mt-6 space-y-5 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
             <p>
-              Finding the right tutor or coaching programme can often feel
-              confusing. Sensei India brings tutor discovery, course comparison
-              and student registration into one clear and accessible platform.
+              Sensei India was created in Dehradun with a simple belief: the
+              right teacher can make even a difficult subject feel approachable.
+              We help families move beyond generic classes by understanding the
+              learner before recommending a tutor.
             </p>
 
             <p>
-              We focus on a student-friendly learning journey: understand the
-              requirement, discover suitable options, connect with a mentor,
-              attend a demo class and begin learning with regular guidance.
+              Our academy supports learners in India and abroad through live
+              online classes, while selected in-person and hybrid options may be
+              available in India. Tutor matching considers curriculum, subject,
+              level, language, schedule and learning preferences.
             </p>
 
             <p>
-              Our goal is not only to help students enrol in a course, but also
-              to support consistent improvement through structured classes,
-              assessments, feedback and progress tracking.
+              From foundational school support to international curricula,
+              entrance preparation and future skills, our aim is to create a
+              learning relationship built on clarity, consistency and confidence.
             </p>
           </div>
 
@@ -138,13 +140,13 @@ export default function AboutPage() {
             </p>
 
             <h2 className="mt-3 font-(family-name:--font-sora) text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl">
-              Help every student learn with confidence.
+              Connect every learner with teaching that makes sense to them.
             </h2>
 
             <p className="mt-5 text-sm leading-7 text-slate-300 sm:text-base">
-              We aim to make personalised and structured education accessible
-              by connecting students with educators who understand their goals
-              and learning needs.
+              We bring the depth and dedication of Indian teaching to a global
+              community, combining personal attention with flexible online
+              access and curriculum-aware academic support.
             </p>
 
             <div className="mt-auto pt-10">
@@ -173,12 +175,12 @@ export default function AboutPage() {
             id="about-values-heading"
             className="mt-3 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl"
           >
-            Learning built on trust and clarity
+            The principles behind every learner match
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
-            Our platform is shaped around the needs of students, parents and
-            educators.
+            We want every family to understand who they are learning with, why
+            the plan fits and what comes next.
           </p>
         </div>
 
@@ -225,12 +227,12 @@ export default function AboutPage() {
                 id="learning-journey-heading"
                 className="mt-3 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.03em] sm:text-4xl"
               >
-                A clearer path from search to progress
+                A considered journey, not a one-size-fits-all package
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                We simplify each step so students and parents can make informed
-                learning decisions.
+                From the first conversation to ongoing lessons, each step is
+                designed around the learner rather than a standard batch.
               </p>
             </div>
 
@@ -278,12 +280,12 @@ export default function AboutPage() {
             </p>
 
             <h2 className="mt-2 font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-              Ready to find the right learning support?
+              Looking for a tutor who understands your curriculum?
             </h2>
 
             <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600">
-              Explore tutors and courses or speak with our admissions team for
-              personalised guidance.
+              Share the learner’s goals with our India-based academic team and
+              receive guidance for online tutoring anywhere in the world.
             </p>
           </div>
 
@@ -291,7 +293,7 @@ export default function AboutPage() {
             href="/contact"
             className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
-            Contact Our Team
+            Speak With Our Team
 
             <span
               aria-hidden="true"
