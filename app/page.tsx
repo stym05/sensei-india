@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import CourseCard from "@/components/CourseCard";
+import HomeSectionDivider from "@/components/HomeSectionDivider";
 import SectionTitle from "@/components/SectionTitle";
 import { courses, faqs, site } from "@/data/site";
 
@@ -52,24 +54,28 @@ export default function Home() {
       {/* Hero */}
       <section
         aria-labelledby="hero-heading"
-        className="hero-grid relative px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24"
+        className="hero-grid relative isolate overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24"
       >
-        <div
-          aria-hidden="true"
-          className="absolute left-0 top-16 -z-10 h-52 w-52 rounded-full bg-sky-200/50 blur-3xl sm:h-72 sm:w-72"
+        <Image
+          src="/images/institute-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-[67%_center]"
         />
 
         <div
           aria-hidden="true"
-          className="absolute right-0 top-0 -z-10 h-64 w-64 rounded-full bg-indigo-200/40 blur-3xl sm:h-96 sm:w-96"
+          className="absolute inset-0 -z-10 bg-linear-to-r from-primary-950 via-primary-950/88 to-primary-900/20"
         />
 
         <div className="mx-auto max-w-7xl">
           <div className="max-w-6xl">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3.5 py-2 text-xs font-bold text-sky-700 shadow-sm backdrop-blur sm:px-4 sm:text-sm">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-bold text-white shadow-sm backdrop-blur-md sm:px-4 sm:text-sm">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-60" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-200 opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
               </span>
 
               <span>Admissions open for new batches</span>
@@ -77,15 +83,15 @@ export default function Home() {
 
             <h1
               id="hero-heading"
-              className="mt-5 max-w-5xl font-(family-name:--font-sora) text-[2.15rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl"
+              className="mt-5 max-w-5xl font-(family-name:--font-sora) text-[2.15rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
             >
               Learn better with the{" "}
-              <span className="relative mt-1 inline-block text-sky-600 sm:mt-0 sm:whitespace-nowrap">
+              <span className="relative mt-1 inline-block text-primary-200 sm:mt-0 sm:whitespace-nowrap">
                 right guidance.
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 320 18"
-                  className="absolute -bottom-2 left-0 h-3 w-full text-sky-300"
+                  className="absolute -bottom-2 left-0 h-3 w-full text-primary-300/80"
                   preserveAspectRatio="none"
                 >
                   <path
@@ -99,7 +105,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-4xl font-(family-name:--font-manrope) text-sm leading-7 text-slate-600 sm:mt-7 sm:text-lg sm:leading-8">
+            <p className="mt-6 max-w-3xl font-(family-name:--font-manrope) text-sm leading-7 text-white/75 sm:mt-7 sm:text-lg sm:leading-8">
               {site.tagline} Discover expert tutors, compare courses and
               register for school coaching or entrance exam preparation—all in
               one simple platform.
@@ -108,7 +114,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">
               <Link
                 href="/find-tutors"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-white shadow-xl shadow-slate-300/60 transition duration-300 hover:-translate-y-1 hover:bg-sky-600 hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 sm:w-auto sm:px-7 sm:py-4"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-primary-500 shadow-xl shadow-primary-950/30 transition duration-300 hover:-translate-y-1 hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:px-7 sm:py-4"
               >
                 Find Your Tutor
                 <span aria-hidden="true">→</span>
@@ -116,7 +122,7 @@ export default function Home() {
 
               <Link
                 href="/register"
-                className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white/80 px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-slate-950 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 sm:w-auto sm:px-7 sm:py-4"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:px-7 sm:py-4"
               >
                 Register as Student
               </Link>
@@ -127,19 +133,19 @@ export default function Home() {
             {highlights.map((item) => (
               <article
                 key={item.title}
-                className="group rounded-2xl border border-white/80 bg-white/75 p-4 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg sm:rounded-3xl sm:p-5"
+                className="group rounded-2xl border border-white/15 bg-primary-950/35 p-4 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-primary-950/50 hover:shadow-lg sm:rounded-3xl sm:p-5"
               >
                 <div className="flex items-center gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-50 text-xs font-extrabold text-sky-700 transition group-hover:bg-sky-500 group-hover:text-white">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/12 text-xs font-extrabold text-primary-100 transition group-hover:bg-white group-hover:text-primary-500">
                     {item.number}
                   </span>
 
-                  <h2 className="font-(family-name:--font-sora) text-sm font-bold text-slate-950 sm:text-base">
+                  <h2 className="font-(family-name:--font-sora) text-sm font-bold text-white sm:text-base">
                     {item.title}
                   </h2>
                 </div>
 
-                <p className="mt-3 text-sm leading-6 text-slate-500">
+                <p className="mt-3 text-sm leading-6 text-white/65">
                   {item.text}
                 </p>
               </article>
@@ -147,8 +153,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <HomeSectionDivider variant="learning" />
+
       {/* Courses */}
-      <section className="px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <section className="px-4 pb-14 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
         <SectionTitle
           eyebrow="Popular Courses"
           title="Programs designed for real outcomes"
@@ -164,31 +172,33 @@ export default function Home() {
         <div className="mt-8 text-center sm:mt-10">
           <Link
             href="/courses"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-800 transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-800 transition hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 sm:w-auto"
           >
             Explore all courses
             <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
+      <HomeSectionDivider variant="progress" />
+
       {/* Workflow */}
       <section className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-slate-900 to-sky-900 p-5 text-white sm:p-7 lg:p-9">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-slate-900 to-primary-900 p-5 text-white sm:p-7 lg:p-9">
           {/* Decorative glow */}
           <div
             aria-hidden="true"
-            className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-sky-400/20 blur-3xl"
+            className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-primary-400/20 blur-3xl"
           />
 
           <div
             aria-hidden="true"
-            className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-indigo-500/20 blur-3xl"
+            className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-primary-500/20 blur-3xl"
           />
 
           <div className="relative">
             {/* Section heading */}
             <div className="max-w-xl">
-              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky-300">
+              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-300">
                 Simple learning journey
               </p>
 
@@ -207,17 +217,17 @@ export default function Home() {
               {workflow.map((step, index) => (
                 <article
                   key={step.title}
-                  className="group rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-sky-300/40 hover:bg-white/12"
+                  className="group rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-primary-300/40 hover:bg-white/12"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-400 font-(family-name:--font-sora) text-xs font-bold text-slate-950">
+                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary-400 font-(family-name:--font-sora) text-xs font-bold text-slate-950">
                       {index + 1}
                     </span>
 
                     {index < workflow.length - 1 && (
                       <span
                         aria-hidden="true"
-                        className="text-base text-white/30 transition duration-300 group-hover:translate-x-1 group-hover:text-sky-300"
+                        className="text-base text-white/30 transition duration-300 group-hover:translate-x-1 group-hover:text-primary-300"
                       >
                         →
                       </span>
@@ -237,13 +247,14 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+      <HomeSectionDivider variant="questions" />
+
       {/* FAQ */}
-<section className="px-4 py-14 sm:px-6 sm:py-18 lg:px-8 lg:py-20">
+<section className="px-4 pb-14 pt-6 sm:px-6 sm:pb-18 sm:pt-8 lg:px-8 lg:pb-20">
   <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
     {/* FAQ introduction */}
     <div className="lg:sticky lg:top-28">
-      <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky-600 sm:text-sm">
+      <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary-600 sm:text-sm">
         Frequently Asked Questions
       </p>
 
@@ -258,7 +269,7 @@ export default function Home() {
 
       <Link
         href="/contact"
-        className="group mt-7 inline-flex items-center gap-2 text-sm font-bold text-sky-700 transition hover:text-sky-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-4"
+        className="group mt-7 inline-flex items-center gap-2 text-sm font-bold text-primary-700 transition hover:text-primary-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4"
       >
         Still have a question?
 
@@ -276,18 +287,18 @@ export default function Home() {
       {faqs.map((faq, index) => (
         <details
           key={faq.q}
-          className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 open:border-sky-200 open:shadow-xl open:shadow-sky-100/70"
+          className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 open:border-primary-200 open:shadow-xl open:shadow-primary-100/70"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 font-(family-name:--font-sora) text-sm font-bold leading-6 text-slate-950 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-500 sm:px-6 sm:py-6 sm:text-base">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 font-(family-name:--font-sora) text-sm font-bold leading-6 text-slate-950 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 sm:px-6 sm:py-6 sm:text-base">
             <span className="flex min-w-0 items-center gap-4">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-50 text-xs font-bold text-sky-700 transition duration-300 group-open:bg-sky-500 group-open:text-white">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary-50 text-xs font-bold text-primary-700 transition duration-300 group-open:bg-primary-500 group-open:text-white">
                 {String(index + 1).padStart(2, "0")}
               </span>
 
               <span>{faq.q}</span>
             </span>
 
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-xl font-normal text-slate-500 transition duration-300 group-open:rotate-45 group-open:border-sky-500 group-open:bg-sky-500 group-open:text-white">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-xl font-normal text-slate-500 transition duration-300 group-open:rotate-45 group-open:border-primary-500 group-open:bg-primary-500 group-open:text-white">
               +
             </span>
           </summary>
@@ -305,20 +316,20 @@ export default function Home() {
 
 {/* Final CTA */}
 <section className="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
-  <div className="relative mx-auto max-w-7xl overflow-hidden rounded-4xl border border-sky-200/70 bg-linear-to-r from-sky-50 via-white to-indigo-50 px-6 py-8 shadow-xl shadow-sky-100/50 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
+  <div className="relative mx-auto max-w-7xl overflow-hidden rounded-4xl border border-primary-200/70 bg-linear-to-r from-primary-50 via-white to-primary-50 px-6 py-8 shadow-xl shadow-primary-100/50 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
     <div
       aria-hidden="true"
-      className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-sky-300/20 blur-3xl"
+      className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-primary-300/20 blur-3xl"
     />
 
     <div
       aria-hidden="true"
-      className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-indigo-300/20 blur-3xl"
+      className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-primary-300/20 blur-3xl"
     />
 
     <div className="relative flex flex-col items-start justify-between gap-7 lg:flex-row lg:items-center">
       <div className="max-w-3xl">
-        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky-600 sm:text-sm">
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary-600 sm:text-sm">
           Start your journey
         </p>
 
@@ -335,14 +346,14 @@ export default function Home() {
       <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
         <Link
           href="/find-tutors"
-          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
         >
           Browse Tutors
         </Link>
 
         <Link
           href="/register"
-          className="group inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+          className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
         >
           Register Now
 

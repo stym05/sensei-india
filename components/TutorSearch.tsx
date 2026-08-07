@@ -1,43 +1,79 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import {
+  useDeferredValue,
+  useMemo,
+  useState,
+} from "react";
 
 import { tutors } from "@/data/site";
 
 const modes = ["All", "Online", "Offline", "Hybrid"] as const;
+const popularSubjects = ["Mathematics", "Physics", "Biology", "Chemistry", "English", "Coding"];
 
 type TutorMode = (typeof modes)[number];
 
+type TutorProfile = {
+  name: string;
+  subject: string;
+  location: string;
+  mode: string;
+  bio: string;
+  experience: string;
+  price: string;
+  rating: number | string;
+  photo?: string;
+  qualification?: string;
+  languages?: string[];
+  students?: number;
+  reviews?: number;
+  verified?: boolean;
+};
+
+const tutorProfiles = tutors as TutorProfile[];
+
 const fieldStyles =
-  "h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none transition hover:border-slate-300 focus:border-sky-500 focus:ring-4 focus:ring-sky-100";
+  "h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none transition hover:border-slate-300 focus:border-primary-500 focus:ring-4 focus:ring-primary-100";
 
 export default function TutorSearch() {
   const [query, setQuery] = useState("");
   const [mode, setMode] = useState<TutorMode>("All");
   const [location, setLocation] = useState("All");
 
+  const deferredQuery = useDeferredValue(query);
+  const isSearching = query !== deferredQuery;
+
   const locations = useMemo(
     () => [
       "All",
       ...Array.from(
-        new Set(tutors.map((tutor) => tutor.location)),
+        new Set(
+          tutorProfiles.map((tutor) => tutor.location),
+        ),
       ).sort(),
     ],
     [],
   );
 
   const filteredTutors = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = deferredQuery
+      .trim()
+      .toLowerCase();
 
-    return tutors.filter((tutor) => {
+    return tutorProfiles.filter((tutor) => {
       const searchableText = [
         tutor.name,
         tutor.subject,
         tutor.location,
         tutor.mode,
         tutor.bio,
+        tutor.experience,
+        tutor.qualification,
+        ...(tutor.languages ?? []),
       ]
+        .filter(Boolean)
         .join(" ")
         .toLowerCase();
 
@@ -49,11 +85,16 @@ export default function TutorSearch() {
         mode === "All" || tutor.mode === mode;
 
       const matchesLocation =
-        location === "All" || tutor.location === location;
+        location === "All" ||
+        tutor.location === location;
 
-      return matchesQuery && matchesMode && matchesLocation;
+      return (
+        matchesQuery &&
+        matchesMode &&
+        matchesLocation
+      );
     });
-  }, [query, mode, location]);
+  }, [deferredQuery, mode, location]);
 
   const hasActiveFilters =
     query.trim() !== "" ||
@@ -72,29 +113,29 @@ export default function TutorSearch() {
       className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
     >
       {/* Search panel */}
-      <div className="relative overflow-hidden rounded-4xl border border-slate-200 bg-white p-5 shadow-xl shadow-sky-100/60 sm:p-7">
+      <div className="relative overflow-hidden rounded-4xl border border-white/70 bg-white/95 p-5 shadow-2xl shadow-primary-950/12 backdrop-blur-xl transition duration-500 hover:shadow-primary-950/18 sm:p-7">
         <div
           aria-hidden="true"
-          className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-sky-100/70 blur-3xl"
+          className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-primary-100/70 blur-3xl"
         />
 
         <div className="relative">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-600 sm:text-sm">
                 Tutor directory
               </p>
 
               <h2
                 id="tutor-search-heading"
-                className="mt-2 font-(family-name:--font-sora) text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl"
+                className="mt-2 font-(family-name:--font-sora) text-xl font-bold tracking-tight text-slate-950 sm:text-2xl"
               >
                 Find the right tutor
               </h2>
 
               <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">
-                Search by tutor name, subject or location and filter
-                by your preferred learning mode.
+                Search verified tutor profiles by subject,
+                location and preferred learning mode.
               </p>
             </div>
 
@@ -102,7 +143,7 @@ export default function TutorSearch() {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="self-start rounded-full px-4 py-2 text-sm font-bold text-slate-500 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 sm:self-auto"
+                className="self-start rounded-full px-4 py-2 text-sm font-bold text-slate-500 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 sm:self-auto"
               >
                 Clear filters
               </button>
@@ -123,16 +164,7 @@ export default function TutorSearch() {
                   aria-hidden="true"
                   className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-5 w-5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="m20 20-3.5-3.5" />
-                  </svg>
+                  <SearchIcon />
                 </span>
 
                 <input
@@ -151,7 +183,7 @@ export default function TutorSearch() {
                     type="button"
                     onClick={() => setQuery("")}
                     aria-label="Clear search"
-                    className="absolute right-3 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                    className="absolute right-3 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                   >
                     ×
                   </button>
@@ -171,13 +203,17 @@ export default function TutorSearch() {
                 id="learning-mode"
                 value={mode}
                 onChange={(event) =>
-                  setMode(event.target.value as TutorMode)
+                  setMode(
+                    event.target.value as TutorMode,
+                  )
                 }
                 className={fieldStyles}
               >
                 {modes.map((item) => (
                   <option key={item} value={item}>
-                    {item === "All" ? "All modes" : item}
+                    {item === "All"
+                      ? "All modes"
+                      : item}
                   </option>
                 ))}
               </select>
@@ -209,20 +245,49 @@ export default function TutorSearch() {
               </select>
             </div>
           </div>
+
+          <div className="mt-5 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:items-center">
+            <span className="shrink-0 text-xs font-extrabold uppercase tracking-[0.14em] text-slate-400">
+              Popular
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {popularSubjects.map((subject) => {
+                const isActive = query.toLowerCase() === subject.toLowerCase();
+
+                return (
+                  <button
+                    key={subject}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setQuery(isActive ? "" : subject)}
+                    className={`rounded-full border px-3 py-1.5 text-xs font-bold transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                      isActive
+                        ? "border-primary-500 bg-primary-500 text-white shadow-md shadow-primary-200"
+                        : "border-slate-200 bg-slate-50 text-slate-600 hover:border-primary-200 hover:bg-primary-50 hover:text-primary-700"
+                    }`}
+                  >
+                    {subject}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Result summary */}
+      {/* Results summary */}
       <div className="mt-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <p
           aria-live="polite"
-          className="text-sm font-semibold text-slate-600"
+          className={`inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition-opacity ${isSearching ? "opacity-50" : "opacity-100"}`}
         >
-          Showing{" "}
-          <span className="font-extrabold text-slate-950">
+          Showing
+          <span className="grid h-8 min-w-8 place-items-center rounded-full bg-primary-50 px-2 font-extrabold text-primary-700">
             {filteredTutors.length}
-          </span>{" "}
-          {filteredTutors.length === 1 ? "tutor" : "tutors"}
+          </span>
+          {filteredTutors.length === 1
+            ? "tutor profile"
+            : "tutor profiles"}
         </p>
 
         {hasActiveFilters && (
@@ -244,113 +309,45 @@ export default function TutorSearch() {
             {location !== "All" && (
               <FilterTag
                 label={location}
-                onRemove={() => setLocation("All")}
+                onRemove={() =>
+                  setLocation("All")
+                }
               />
             )}
           </div>
         )}
       </div>
 
-      {/* Tutor results */}
+      {/* Tutor profiles */}
       {filteredTutors.length > 0 ? (
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredTutors.map((tutor) => {
-            const initials = tutor.name
-              .split(" ")
-              .map((part) => part[0])
-              .join("")
-              .slice(0, 2)
-              .toUpperCase();
-
-            return (
-              <article
-                key={`${tutor.name}-${tutor.subject}-${tutor.location}`}
-                className="group flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-xl hover:shadow-sky-100"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex min-w-0 items-center gap-3">
-                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-slate-950 font-(family-name:--font-sora) text-sm font-bold text-white transition duration-300 group-hover:bg-sky-500">
-                      {initials}
-                    </div>
-
-                    <div className="min-w-0">
-                      <h3 className="truncate font-(family-name:--font-sora) text-lg font-bold text-slate-950">
-                        {tutor.name}
-                      </h3>
-
-                      <p className="mt-1 truncate text-sm font-bold text-sky-700">
-                        {tutor.subject}
-                      </p>
-                    </div>
-                  </div>
-
-                  <span
-                    aria-label={`Rated ${tutor.rating} out of 5`}
-                    className="inline-flex shrink-0 items-center gap-1 rounded-full border border-amber-100 bg-amber-50 px-3 py-1.5 text-sm font-extrabold text-amber-700"
-                  >
-                    <span aria-hidden="true">★</span>
-                    {tutor.rating}
-                  </span>
-                </div>
-
-                <p className="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">
-                  {tutor.bio}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <TutorTag label={tutor.experience} />
-                  <TutorTag label={tutor.location} />
-                  <TutorTag label={tutor.mode} />
-                </div>
-
-                <div className="mt-auto pt-6">
-                  <div className="mb-4 flex items-center justify-between border-t border-slate-100 pt-5">
-                    <span className="text-sm font-medium text-slate-500">
-                      Starting from
-                    </span>
-
-                    <span className="font-(family-name:--font-sora) font-bold text-slate-950">
-                      {tutor.price}
-                    </span>
-                  </div>
-
-                  <Link
-                    href="/register"
-                    className="group/button inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
-                  >
-                    Book Demo Class
-
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform duration-300 group-hover/button:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
+          {filteredTutors.map((tutor, index) => (
+            <TutorCard
+              key={`${tutor.name}-${tutor.subject}-${tutor.location}`}
+              tutor={tutor}
+              index={index}
+            />
+          ))}
         </div>
       ) : (
-        <div className="mt-6 rounded-4xl border border-dashed border-slate-300 bg-slate-50 px-6 py-16 text-center">
-          <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-white text-2xl shadow-sm">
-            🔍
+        <div className="mt-6 rounded-4xl border border-dashed border-slate-300 bg-slate-50 px-6 py-14 text-center">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-slate-500 shadow-sm">
+            <SearchIcon className="h-6 w-6" />
           </div>
 
-          <h3 className="mt-5 font-(family-name:--font-sora) text-xl font-bold text-slate-950">
+          <h3 className="mt-5 font-(family-name:--font-sora) text-lg font-bold text-slate-950 sm:text-xl">
             No tutors found
           </h3>
 
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">
-            Try changing your search term, learning mode or
-            location to discover more tutors.
+            Try changing your search term, learning
+            mode or location to discover more tutors.
           </p>
 
           <button
             type="button"
             onClick={clearFilters}
-            className="mt-6 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+            className="mt-6 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
             Reset all filters
           </button>
@@ -360,11 +357,184 @@ export default function TutorSearch() {
   );
 }
 
-function TutorTag({ label }: { label: string }) {
+function TutorCard({
+  tutor,
+  index,
+}: {
+  tutor: TutorProfile;
+  index: number;
+}) {
+  const initials = tutor.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+  const registrationHref = `/register?tutor=${encodeURIComponent(
+    tutor.name,
+  )}&subject=${encodeURIComponent(tutor.subject)}`;
+
   return (
-    <span className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600">
-      {label}
-    </span>
+    <article
+      className="tutor-card-enter group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-100"
+      style={{ animationDelay: `${Math.min(index, 5) * 70}ms` }}
+    >
+      <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px origin-left scale-x-0 bg-linear-to-r from-transparent via-primary-400 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+      {/* Photograph */}
+      <div className="relative h-52 overflow-hidden bg-slate-100">
+        {tutor.photo ? (
+          <Image
+            src={tutor.photo}
+            alt={`${tutor.name}, ${tutor.subject} tutor`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover object-top transition duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="grid h-full place-items-center bg-linear-to-br from-slate-100 to-primary-100">
+            <span className="grid h-20 w-20 place-items-center rounded-full bg-slate-950 font-(family-name:--font-sora) text-2xl font-bold text-white shadow-xl">
+              {initials}
+            </span>
+          </div>
+        )}
+
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-slate-950/60 to-transparent" />
+
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          {tutor.verified && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/90 px-3 py-1.5 text-xs font-bold text-primary-700 shadow-sm backdrop-blur">
+              <span
+                aria-hidden="true"
+                className="grid h-4 w-4 place-items-center rounded-full bg-primary-500 text-[10px] text-white"
+              >
+                ✓
+              </span>
+              Verified
+            </span>
+          )}
+
+          <span className="rounded-full border border-white/20 bg-slate-950/75 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
+            {tutor.mode}
+          </span>
+        </div>
+
+        <span
+          aria-label={`Rated ${tutor.rating} out of 5`}
+          className="absolute bottom-4 right-4 inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-sm font-extrabold text-amber-700 shadow-lg"
+        >
+          <span aria-hidden="true">★</span>
+          {tutor.rating}
+
+          {tutor.reviews !== undefined && (
+            <span className="font-medium text-slate-400">
+              ({tutor.reviews})
+            </span>
+          )}
+        </span>
+      </div>
+
+      {/* Profile content */}
+      <div className="flex flex-1 flex-col p-5">
+        <div>
+          <h3 className="font-(family-name:--font-sora) text-lg font-bold tracking-tight text-slate-950">
+            {tutor.name}
+          </h3>
+
+          <p className="mt-1 text-sm font-bold text-primary-700">
+            {tutor.subject}
+          </p>
+
+          {tutor.qualification && (
+            <p className="mt-2 text-sm font-medium text-slate-500">
+              {tutor.qualification}
+            </p>
+          )}
+        </div>
+
+        <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-600">
+          {tutor.bio}
+        </p>
+
+        <div className="mt-5 grid grid-cols-2 gap-3 rounded-2xl bg-slate-50 p-4">
+          <ProfileDetail
+            label="Experience"
+            value={tutor.experience}
+          />
+
+          <ProfileDetail
+            label="Location"
+            value={tutor.location}
+          />
+
+          {tutor.languages?.length ? (
+            <ProfileDetail
+              label="Languages"
+              value={tutor.languages.join(", ")}
+            />
+          ) : null}
+
+          {tutor.students !== undefined && (
+            <ProfileDetail
+              label="Students taught"
+              value={`${tutor.students}+`}
+            />
+          )}
+        </div>
+
+        <div className="mt-auto pt-5">
+          <div className="mb-4 flex items-end justify-between border-t border-slate-100 pt-5">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
+                Starting from
+              </p>
+
+              <p className="mt-1 font-(family-name:--font-sora) text-lg font-bold text-slate-950">
+                {tutor.price}
+              </p>
+            </div>
+
+            <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
+              Demo available
+            </span>
+          </div>
+
+          <Link
+            href={registrationHref}
+            className="group/button inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+          >
+            Book Demo Class
+
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover/button:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProfileDetail({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="min-w-0">
+      <p className="text-xs font-medium text-slate-400">
+        {label}
+      </p>
+
+      <p className="mt-1 truncate text-xs font-bold text-slate-700 sm:text-sm">
+        {value}
+      </p>
+    </div>
   );
 }
 
@@ -376,17 +546,40 @@ function FilterTag({
   onRemove: () => void;
 }) {
   return (
-    <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700">
-      <span className="max-w-48 truncate">{label}</span>
+    <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5 text-xs font-bold text-primary-700">
+      <span className="max-w-48 truncate">
+        {label}
+      </span>
 
       <button
         type="button"
         onClick={onRemove}
         aria-label={`Remove ${label} filter`}
-        className="grid h-5 w-5 shrink-0 place-items-center rounded-full transition hover:bg-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+        className="grid h-5 w-5 shrink-0 place-items-center rounded-full transition hover:bg-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
       >
         ×
       </button>
     </span>
+  );
+}
+
+function SearchIcon({
+  className = "h-5 w-5",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    >
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
   );
 }

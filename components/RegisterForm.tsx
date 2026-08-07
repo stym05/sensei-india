@@ -5,7 +5,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { Country, State } from "country-state-city";
 
 const fieldStyles =
-  "w-full rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-normal text-slate-950 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-sky-500 focus:bg-white focus:ring-4 focus:ring-sky-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400";
+  "w-full rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm font-normal text-slate-950 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400";
 
 const learningModes = [
   "Online — Worldwide",
@@ -114,7 +114,6 @@ const courseGroups = [
   {
     label: "School Tuition",
     options: [
-      "Pre-primary and Early Learning",
       "Primary School — Grades 1 to 5",
       "Middle School — Grades 6 to 8",
       "Secondary School — Grades 9 and 10",
@@ -397,7 +396,7 @@ export default function RegisterForm() {
           <button
             type="button"
             onClick={() => setSubmitted(false)}
-            className="mt-7 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+            className="mt-7 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
             Submit another registration
           </button>
@@ -407,9 +406,9 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl rounded-4xl border border-slate-200 bg-white p-5 shadow-2xl shadow-sky-100/70 sm:p-8 lg:p-10">
+    <div className="mx-auto max-w-5xl rounded-4xl border border-slate-200 bg-white p-5 shadow-2xl shadow-primary-100/70 sm:p-8 lg:p-10">
       <div className="mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-bold text-sky-700">
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-2 text-xs font-bold text-primary-700">
           <span aria-hidden="true">🌍</span>
           Worldwide student registration
         </div>
@@ -792,7 +791,7 @@ export default function RegisterForm() {
             name="consent"
             type="checkbox"
             required
-            className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-sky-500 accent-sky-500 focus:ring-sky-500"
+            className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-primary-500 accent-primary-500 focus:ring-primary-500"
           />
 
           <label
@@ -803,14 +802,14 @@ export default function RegisterForm() {
             registration and accept the{" "}
             <Link
               href="/privacy-policy"
-              className="font-semibold text-sky-700 underline decoration-sky-300 underline-offset-4 transition hover:text-sky-800"
+              className="font-semibold text-primary-700 underline decoration-primary-300 underline-offset-4 transition hover:text-primary-800"
             >
               Privacy Policy
             </Link>{" "}
             and{" "}
             <Link
               href="/terms-and-conditions"
-              className="font-semibold text-sky-700 underline decoration-sky-300 underline-offset-4 transition hover:text-sky-800"
+              className="font-semibold text-primary-700 underline decoration-primary-300 underline-offset-4 transition hover:text-primary-800"
             >
               Terms &amp; Conditions
             </Link>
@@ -820,7 +819,7 @@ export default function RegisterForm() {
 
         <button
           type="submit"
-          className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sky-500 px-6 py-4 text-sm font-bold text-white shadow-md shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-200 sm:w-fit sm:justify-self-center md:col-span-2"
+          className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 py-4 text-sm font-bold text-white shadow-md shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-200 sm:w-fit sm:justify-self-center md:col-span-2"
         >
           Submit Student Registration
 
@@ -872,7 +871,7 @@ function FormSectionHeading({
 }: FormSectionHeadingProps) {
   return (
     <div className="flex gap-4 border-b border-slate-200 pb-4">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-sky-100 text-xs font-extrabold text-sky-700">
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-100 text-xs font-extrabold text-primary-700">
         {number}
       </div>
 

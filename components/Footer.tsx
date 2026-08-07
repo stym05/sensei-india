@@ -56,9 +56,9 @@ export default function Footer() {
             <Link
               href="/"
               aria-label={`${site.name} home`}
-              className="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950"
+              className="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-sky-500 font-(family-name:--font-sora) text-base font-bold text-white transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary-500 font-(family-name:--font-sora) text-base font-bold text-white transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
                 <span className="relative z-10">SI</span>
 
               </span>
@@ -76,14 +76,14 @@ export default function Footer() {
             <div className="mt-4 flex flex-col gap-1.5 text-sm">
               <a
                 href={phoneHref}
-                className="w-fit text-slate-400 transition hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="w-fit text-slate-400 transition hover:text-primary-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
               >
                 {site.phone}
               </a>
 
               <a
                 href={`mailto:${site.email}`}
-                className="w-fit break-all text-slate-400 transition hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="w-fit break-all text-slate-400 transition hover:text-primary-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
               >
                 {site.email}
               </a>
@@ -117,7 +117,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Follow ${site.name} on ${label}`}
-                    className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition duration-300 hover:-translate-y-0.5 hover:border-sky-400/40 hover:bg-sky-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                    className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition duration-300 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-primary-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
                   >
                     <Icon />
                   </a>
@@ -152,7 +152,7 @@ function FooterLinkGroup({
             <li key={`${link.href}-${link.label}`}>
               <Link
                 href={link.href}
-                className="inline-flex text-sm text-slate-400 transition duration-200 hover:translate-x-0.5 hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="inline-flex text-sm text-slate-400 transition duration-200 hover:translate-x-0.5 hover:text-primary-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
               >
                 {link.label}
               </Link>

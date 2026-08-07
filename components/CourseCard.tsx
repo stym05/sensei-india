@@ -1,9 +1,9 @@
 export type Course = { title: string; category: string; duration: string; mode: string; level: string; price: string; description: string };
 export default function CourseCard({ course }: { course: Course }) {
   return (
-    <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-100">
+    <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-100">
       <div className="flex items-center justify-between gap-3">
-        <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold text-sky-700">{course.category}</span>
+        <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700">{course.category}</span>
         <span className="text-sm font-bold text-slate-500">{course.price}</span>
       </div>
       <h3 className="mt-5 text-xl font-black text-slate-950">{course.title}</h3>

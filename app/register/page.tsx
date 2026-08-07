@@ -12,12 +12,12 @@ export default function RegisterPage() {
     <main className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
       <div
         aria-hidden="true"
-        className="absolute -left-32 top-20 -z-10 h-80 w-80 rounded-full bg-sky-100/80 blur-3xl"
+        className="absolute -left-32 top-20 -z-10 h-80 w-80 rounded-full bg-primary-100/80 blur-3xl"
       />
 
       <div
         aria-hidden="true"
-        className="absolute -right-32 top-72 -z-10 h-96 w-96 rounded-full bg-indigo-100/70 blur-3xl"
+        className="absolute -right-32 top-72 -z-10 h-96 w-96 rounded-full bg-primary-100/70 blur-3xl"
       />
 
       <section className="px-4 sm:px-6 lg:px-8">
@@ -31,11 +31,11 @@ export default function RegisterPage() {
           {registrationBenefits.map((benefit) => (
             <div
               key={benefit}
-              className="inline-flex items-center gap-2 rounded-full border border-sky-100 bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-primary-100 bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm"
             >
               <span
                 aria-hidden="true"
-                className="grid h-5 w-5 place-items-center rounded-full bg-sky-100 text-xs font-bold text-sky-700"
+                className="grid h-5 w-5 place-items-center rounded-full bg-primary-100 text-xs font-bold text-primary-700"
               >
                 ✓
               </span>

@@ -44,16 +44,16 @@ export default function ContactPage() {
         <aside className="relative overflow-hidden rounded-4xl bg-slate-950 p-7 text-white shadow-2xl shadow-slate-300/50 sm:p-9 lg:sticky lg:top-28">
           <div
             aria-hidden="true"
-            className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-sky-500/20 blur-3xl"
+            className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl"
           />
 
           <div
             aria-hidden="true"
-            className="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl"
+            className="absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl"
           />
 
           <div className="relative">
-            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-300">
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-300">
               Get in touch
             </p>
 
@@ -72,7 +72,7 @@ export default function ContactPage() {
 
                 const content = (
                   <>
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white/10 text-sky-300 transition group-hover:bg-sky-400 group-hover:text-slate-950">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white/10 text-primary-300 transition group-hover:bg-primary-400 group-hover:text-slate-950">
                       <Icon />
                     </span>
 
@@ -93,7 +93,7 @@ export default function ContactPage() {
                     <a
                       key={detail.label}
                       href={detail.href}
-                      className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-sky-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                      className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
                     >
                       {content}
                     </a>
@@ -111,12 +111,12 @@ export default function ContactPage() {
               })}
             </div>
 
-            <div className="mt-8 rounded-3xl border border-sky-400/20 bg-sky-400/10 p-5">
+            <div className="mt-8 rounded-3xl border border-primary-400/20 bg-primary-400/10 p-5">
               <p className="font-(family-name:--font-sora) font-bold text-white">
                 Looking for a demo class?
               </p>
 
-              <p className="mt-2 text-sm leading-6 text-sky-100">
+              <p className="mt-2 text-sm leading-6 text-primary-100">
                 Mention your class, subject and preferred learning mode in the
                 enquiry form for faster assistance.
               </p>

@@ -1,14 +1,34 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f7fbff;
-  --foreground: #102033;
+@theme {
+  --color-primary-50: #f3f4f8;
+  --color-primary-100: #e5e7f0;
+  --color-primary-200: #c9cde0;
+  --color-primary-300: #a4abc8;
+  --color-primary-400: #707ba5;
+  --color-primary-500: #1e2761;
+  --color-primary-600: #192153;
+  --color-primary-700: #151b47;
+  --color-primary-800: #11163a;
+  --color-primary-900: #0d122f;
+  --color-primary-950: #080b20;
 }
 
-html { scroll-behavior: smooth; }
+:root {
+  --background: #fafafe;
+  --foreground: #11162f;
+  --primary: #1e2761;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: radial-gradient(circle at top left, rgba(34,211,238,.18), transparent 32rem), var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(30, 39, 97, 0.09), transparent 32rem),
+    var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -21,11 +41,89 @@ body {
 }
 
 .hero-grid {
-  background-image: linear-gradient(rgba(15,23,42,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,.05) 1px, transparent 1px);
-  background-size: 34px 34px;
+  background-color: var(--primary);
 }
 
-.focus-ring:focus { outline: 3px solid rgba(14,165,233,.45); outline-offset: 2px; }
+.focus-ring:focus {
+  outline: 3px solid rgba(30, 39, 97, 0.42);
+  outline-offset: 2px;
+}
 
-@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-.floaty { animation: floaty 5s ease-in-out infinite; }
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@keyframes teacher-hero-drift {
+  0%,
+  100% {
+    transform: scale(1.035) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.075) translate3d(0, -0.75%, 0);
+  }
+}
+
+@keyframes hero-card-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0.5deg);
+  }
+}
+
+@keyframes tutor-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.teacher-hero-image {
+  animation: teacher-hero-drift 18s ease-in-out infinite;
+  object-position: 14% center;
+  will-change: transform;
+}
+
+.hero-float-card {
+  animation: hero-card-float 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.tutor-card-enter {
+  animation: tutor-card-enter 0.55s ease-out both;
+}
+
+@media (min-width: 640px) {
+  .teacher-hero-image {
+    object-position: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .floaty,
+  .teacher-hero-image,
+  .hero-float-card,
+  .tutor-card-enter {
+    animation: none;
+  }
+}

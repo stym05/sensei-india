@@ -44,12 +44,12 @@ export default function AboutPage() {
     <main className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <div
         aria-hidden="true"
-        className="absolute -left-32 top-20 -z-10 h-80 w-80 rounded-full bg-sky-100/80 blur-3xl"
+        className="absolute -left-32 top-20 -z-10 h-80 w-80 rounded-full bg-primary-100/80 blur-3xl"
       />
 
       <div
         aria-hidden="true"
-        className="absolute -right-32 top-72 -z-10 h-96 w-96 rounded-full bg-indigo-100/70 blur-3xl"
+        className="absolute -right-32 top-72 -z-10 h-96 w-96 rounded-full bg-primary-100/70 blur-3xl"
       />
 
       <SectionTitle
@@ -63,8 +63,8 @@ export default function AboutPage() {
         aria-labelledby="about-introduction-heading"
         className="mx-auto mt-12 grid max-w-7xl items-stretch gap-8 lg:grid-cols-[1.1fr_0.9fr]"
       >
-        <div className="rounded-4xl border border-slate-200 bg-white p-7 shadow-xl shadow-sky-100/60 sm:p-10">
-          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+        <div className="rounded-4xl border border-slate-200 bg-white p-7 shadow-xl shadow-primary-100/60 sm:p-10">
+          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
             Our purpose
           </p>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/find-tutors"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
             >
               Find a Tutor
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
             <Link
               href="/courses"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 transition duration-300 hover:-translate-y-0.5 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 transition duration-300 hover:-translate-y-0.5 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
             >
               Explore Courses
             </Link>
@@ -124,16 +124,16 @@ export default function AboutPage() {
         <aside className="relative overflow-hidden rounded-4xl bg-slate-950 p-7 text-white shadow-2xl shadow-slate-300/50 sm:p-10">
           <div
             aria-hidden="true"
-            className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-sky-500/20 blur-3xl"
+            className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl"
           />
 
           <div
             aria-hidden="true"
-            className="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl"
+            className="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl"
           />
 
           <div className="relative flex h-full flex-col">
-            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-300">
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-300">
               Our mission
             </p>
 
@@ -165,7 +165,7 @@ export default function AboutPage() {
         className="mx-auto mt-20 max-w-7xl"
       >
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
             What guides us
           </p>
 
@@ -186,9 +186,9 @@ export default function AboutPage() {
           {values.map((value) => (
             <article
               key={value.title}
-              className="group rounded-4xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-xl hover:shadow-sky-100 sm:p-7"
+              className="group rounded-4xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-100 sm:p-7"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-sky-50 font-(family-name:--font-sora) text-sm font-bold text-sky-700 transition duration-300 group-hover:bg-sky-500 group-hover:text-white">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-primary-50 font-(family-name:--font-sora) text-sm font-bold text-primary-700 transition duration-300 group-hover:bg-primary-500 group-hover:text-white">
                 {value.number}
               </span>
 
@@ -209,15 +209,15 @@ export default function AboutPage() {
         aria-labelledby="learning-journey-heading"
         className="mx-auto mt-20 max-w-7xl"
       >
-        <div className="relative overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-slate-900 to-sky-900 p-7 text-white sm:p-10 lg:p-14">
+        <div className="relative overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-slate-900 to-primary-900 p-7 text-white sm:p-10 lg:p-14">
           <div
             aria-hidden="true"
-            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-sky-400/20 blur-3xl"
+            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary-400/20 blur-3xl"
           />
 
           <div className="relative">
             <div className="max-w-2xl">
-              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-300">
+              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-300">
                 How it works
               </p>
 
@@ -238,17 +238,17 @@ export default function AboutPage() {
               {learningJourney.map((step, index) => (
                 <article
                   key={step.title}
-                  className="group rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-sky-300/40 hover:bg-white/12"
+                  className="group rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary-300/40 hover:bg-white/12"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="grid h-10 w-10 place-items-center rounded-xl bg-sky-400 font-(family-name:--font-sora) text-sm font-bold text-slate-950">
+                    <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary-400 font-(family-name:--font-sora) text-sm font-bold text-slate-950">
                       {index + 1}
                     </span>
 
                     {index < learningJourney.length - 1 && (
                       <span
                         aria-hidden="true"
-                        className="text-xl text-white/30 transition group-hover:translate-x-1 group-hover:text-sky-300"
+                        className="text-xl text-white/30 transition group-hover:translate-x-1 group-hover:text-primary-300"
                       >
                         →
                       </span>
@@ -271,9 +271,9 @@ export default function AboutPage() {
 
       {/* Final CTA */}
       <section className="mx-auto mt-16 max-w-7xl">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-4xl border border-sky-100 bg-sky-50 p-7 sm:p-9 lg:flex-row lg:items-center">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-4xl border border-primary-100 bg-primary-50 p-7 sm:p-9 lg:flex-row lg:items-center">
           <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
               Start learning
             </p>
 
@@ -289,7 +289,7 @@ export default function AboutPage() {
 
           <Link
             href="/contact"
-            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           >
             Contact Our Team
 

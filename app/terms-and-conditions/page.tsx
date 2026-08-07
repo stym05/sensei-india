@@ -107,7 +107,7 @@ export default function TermsPage() {
     <main className="relative overflow-hidden bg-slate-50/60 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-sky-200/30 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-primary-200/30 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-6xl">
@@ -117,10 +117,10 @@ export default function TermsPage() {
           text={`Please review these terms carefully before accessing ${site.name}, submitting a registration, selecting a tutor, or enrolling in an educational service.`}
         />
 
-        <section className="mt-10 overflow-hidden rounded-4xl border border-sky-100 bg-white shadow-xl shadow-sky-100/50">
-          <div className="grid gap-6 bg-linear-to-br from-sky-50 via-white to-indigo-50 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+        <section className="mt-10 overflow-hidden rounded-4xl border border-primary-100 bg-white shadow-xl shadow-primary-100/50">
+          <div className="grid gap-6 bg-linear-to-br from-primary-50 via-white to-primary-50 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
             <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
                 Important information
               </p>
 
@@ -150,7 +150,7 @@ export default function TermsPage() {
         <div className="mt-8 grid items-start gap-8 lg:grid-cols-[270px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-24">
             <div className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
-              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky-600">
+              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-600">
                 On this page
               </p>
 
@@ -163,9 +163,9 @@ export default function TermsPage() {
                     <li key={term.id}>
                       <a
                         href={`#${term.id}`}
-                        className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-sky-50 hover:text-sky-700"
+                        className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-primary-50 hover:text-primary-700"
                       >
-                        <span className="text-xs font-bold text-slate-300 transition group-hover:text-sky-500">
+                        <span className="text-xs font-bold text-slate-300 transition group-hover:text-primary-500">
                           {term.number}
                         </span>
 
@@ -183,10 +183,10 @@ export default function TermsPage() {
               <section
                 id={term.id}
                 key={term.id}
-                className="scroll-mt-28 rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/60 sm:p-8"
+                className="scroll-mt-28 rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-100/60 sm:p-8"
               >
                 <div className="flex items-start gap-4 sm:gap-5">
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-sky-100 text-xs font-extrabold text-sky-700">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-primary-100 text-xs font-extrabold text-primary-700">
                     {term.number}
                   </div>
 
@@ -208,7 +208,7 @@ export default function TermsPage() {
         <section className="mt-8 overflow-hidden rounded-4xl bg-slate-950 p-6 text-white shadow-xl shadow-slate-200 sm:p-8 lg:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-400">
+              <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-400">
                 Need clarification?
               </p>
 
@@ -225,7 +225,7 @@ export default function TermsPage() {
 
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sky-500 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-sky-950/30 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-300/40 sm:w-fit"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-primary-950/30 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-300/40 sm:w-fit"
             >
               {site.email}
 

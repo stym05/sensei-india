@@ -43,14 +43,14 @@ export default function Navbar() {
             href="/"
             onClick={closeMenu}
             aria-label={`${site.name} home`}
-            className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-3"
+            className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-3"
           >
             <span className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl bg-slate-950 text-sm font-black text-white shadow-md shadow-slate-300 transition duration-300 group-hover:-rotate-3 group-hover:scale-105">
               <span className="relative z-10">SI</span>
 
               <span
                 aria-hidden="true"
-                className="absolute inset-0 translate-y-full bg-linear-to-br from-sky-400 to-indigo-600 transition-transform duration-300 group-hover:translate-y-0"
+                className="absolute inset-0 translate-y-full bg-linear-to-br from-primary-400 to-primary-600 transition-transform duration-300 group-hover:translate-y-0"
               />
             </span>
 
@@ -69,9 +69,9 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group relative rounded-full px-3.5 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
+                  className={`group relative rounded-full px-3.5 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                     isActive
-                      ? "bg-sky-50 text-sky-700"
+                      ? "bg-primary-50 text-primary-700"
                       : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function Navbar() {
 
                   <span
                     aria-hidden="true"
-                    className={`absolute inset-x-3.5 -bottom-px h-0.5 origin-left rounded-full bg-sky-500 transition-transform duration-300 ${
+                    className={`absolute inset-x-3.5 -bottom-px h-0.5 origin-left rounded-full bg-primary-500 transition-transform duration-300 ${
                       isActive
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -93,7 +93,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/register"
-            className="hidden items-center justify-center rounded-full bg-sky-500 px-4.5 py-2.5 text-sm font-bold text-white shadow-md shadow-sky-200 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 md:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-primary-500 px-4.5 py-2.5 text-sm font-bold text-white shadow-md shadow-primary-200 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 md:inline-flex"
           >
             Enroll Now
           </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
             onClick={() =>
               setIsMenuOpen((current) => !current)
             }
-            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm transition hover:border-primary-200 hover:bg-primary-50 hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 md:hidden"
           >
             <span className="relative h-4 w-5">
               <span
@@ -166,7 +166,7 @@ export default function Navbar() {
                       }
                       className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
                         isActive
-                          ? "bg-sky-50 text-sky-700"
+                          ? "bg-primary-50 text-primary-700"
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                       }`}
                     >
@@ -176,7 +176,7 @@ export default function Navbar() {
                         aria-hidden="true"
                         className={`transition-transform ${
                           isActive
-                            ? "translate-x-0 text-sky-500"
+                            ? "translate-x-0 text-primary-500"
                             : "-translate-x-1 text-slate-300"
                         }`}
                       >
@@ -190,7 +190,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 onClick={closeMenu}
-                className="mt-2 flex w-full items-center justify-center rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                className="mt-2 flex w-full items-center justify-center rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               >
                 Enroll Now
               </Link>

@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 
 const fieldStyles =
-  "w-full rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-sky-500 focus:bg-white focus:ring-4 focus:ring-sky-100";
+  "w-full rounded-2xl border border-slate-200 bg-slate-50/60 px-4 py-3.5 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-100";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -28,10 +28,10 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit}
       onChange={handleFormChange}
-      className="rounded-4xl border border-slate-200 bg-white p-6 shadow-xl shadow-sky-100/70 sm:p-8"
+      className="rounded-4xl border border-slate-200 bg-white p-6 shadow-xl shadow-primary-100/70 sm:p-8"
     >
       <div className="mb-7">
-        <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-sky-600">
+        <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
           Contact us
         </p>
 
@@ -147,7 +147,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-slate-300/60 transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600 hover:shadow-sky-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-200"
+          className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-slate-300/60 transition duration-300 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-primary-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-200"
         >
           Send Message
 
