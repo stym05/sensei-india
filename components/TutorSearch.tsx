@@ -112,7 +112,7 @@ export default function TutorSearch() {
       className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
     >
       {/* Search panel */}
-      <div className="relative overflow-hidden rounded-4xl border border-white/70 bg-white/95 p-5 shadow-2xl shadow-primary-950/12 backdrop-blur-xl transition duration-500 hover:shadow-primary-950/18 sm:p-7">
+      <div className="relative overflow-hidden rounded-none border border-white/70 bg-white/95 p-5 shadow-2xl shadow-primary-950/12 backdrop-blur-xl transition duration-500 hover:shadow-primary-950/18 sm:p-7">
         <div
           aria-hidden="true"
           className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-primary-100/70 blur-3xl"
@@ -329,7 +329,7 @@ export default function TutorSearch() {
           ))}
         </div>
       ) : (
-        <div className="mt-6 rounded-4xl border border-dashed border-slate-300 bg-slate-50 px-6 py-14 text-center">
+        <div className="mt-6 rounded-none border border-dashed border-slate-300 bg-slate-50 px-6 py-14 text-center">
           <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-slate-500 shadow-sm">
             <SearchIcon className="h-6 w-6" />
           </div>
@@ -376,7 +376,7 @@ function TutorCard({
 
   return (
     <article
-      className="tutor-card-enter group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-100"
+      className="tutor-card-enter group relative flex h-full flex-col overflow-hidden rounded-none border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-100"
       style={{ animationDelay: `${Math.min(index, 5) * 70}ms` }}
     >
       <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px origin-left scale-x-0 bg-linear-to-r from-transparent via-primary-400 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
@@ -455,7 +455,7 @@ function TutorCard({
           {tutor.bio}
         </p>
 
-        <div className="mt-5 grid grid-cols-2 gap-3 rounded-2xl bg-slate-50 p-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 rounded-none bg-slate-50 p-4">
           <ProfileDetail
             label="Experience"
             value={tutor.experience}

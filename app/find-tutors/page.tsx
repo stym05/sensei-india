@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import TutorSearch from "@/components/TutorSearch";
+import { features } from "@/data/features";
 
 const heroProof = [
   { icon: "✓", value: "Experienced", label: "Subject educators", position: "left-[5%] top-[15%]" },
@@ -17,13 +19,17 @@ const searchBenefits = [
 ];
 
 export default function FindTutorsPage() {
+  if (!features.tutorDirectory) {
+    redirect("/register");
+  }
+
   return (
     <main className="relative overflow-hidden pb-16 sm:pb-20">
       <section
         aria-labelledby="find-tutors-heading"
         className="px-3 pt-3 sm:px-5 sm:pt-5 lg:px-6"
       >
-        <div className="relative mx-auto min-h-116 max-w-[1440px] overflow-hidden rounded-[1.75rem] bg-primary-950 shadow-2xl shadow-primary-950/25 sm:min-h-128 sm:rounded-[2.25rem] lg:min-h-136">
+        <div className="relative mx-auto min-h-116 max-w-[1440px] overflow-hidden rounded-none bg-primary-950 shadow-2xl shadow-primary-950/25 sm:min-h-128 lg:min-h-136">
           <Image
             src="/images/find-tutors-hero.png"
             alt="Two expert tutors in a modern learning studio"
@@ -44,7 +50,7 @@ export default function FindTutorsPage() {
           {heroProof.map((item, index) => (
             <div
               key={item.label}
-              className={`hero-float-card absolute z-10 hidden items-center gap-3 rounded-2xl border border-white/15 bg-primary-950/55 p-3.5 text-white shadow-xl backdrop-blur-xl lg:flex ${item.position}`}
+              className={`hero-float-card absolute z-10 hidden items-center gap-3 rounded-none border border-white/15 bg-primary-950/55 p-3.5 text-white shadow-xl backdrop-blur-xl lg:flex ${item.position}`}
               style={{ animationDelay: `${index * -1.1}s` }}
             >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/12 text-base font-black text-primary-100">
@@ -101,7 +107,7 @@ export default function FindTutorsPage() {
       </div>
 
       <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="group relative overflow-hidden rounded-4xl bg-primary-950 p-7 text-white shadow-2xl shadow-primary-950/15 sm:p-9 lg:p-11">
+        <div className="group relative overflow-hidden rounded-none bg-primary-950 p-7 text-white shadow-2xl shadow-primary-950/15 sm:p-9 lg:p-11">
           <div aria-hidden="true" className="absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary-400/20 blur-3xl transition duration-700 group-hover:scale-125" />
           <div aria-hidden="true" className="absolute -bottom-28 left-1/3 h-60 w-60 rounded-full bg-white/8 blur-3xl" />
 

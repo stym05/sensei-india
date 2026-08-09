@@ -19,7 +19,7 @@ export default function CoursesPage() {
         ))}
       </div>
 
-      <section className="mx-auto mt-14 max-w-7xl overflow-hidden rounded-4xl bg-primary-950 p-7 text-white sm:p-10">
+      <section className="mx-auto mt-14 max-w-7xl overflow-hidden rounded-none bg-primary-950 p-7 text-white sm:p-10">
         <div className="flex flex-col items-start justify-between gap-7 lg:flex-row lg:items-center">
           <div className="max-w-3xl">
             <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-200">

@@ -1,9 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import CourseCard from "@/components/CourseCard";
+import FaqAccordion from "@/components/FaqAccordion";
 import HomeSectionDivider from "@/components/HomeSectionDivider";
+import LearningProgramsCarousel from "@/components/LearningProgramsCarousel";
 import SectionTitle from "@/components/SectionTitle";
+import { features } from "@/data/features";
 import { courses, faqs, site, testimonials } from "@/data/site";
 
 const highlights = [
@@ -54,25 +55,30 @@ export default function Home() {
       {/* Hero */}
       <section
         aria-labelledby="hero-heading"
-        className="hero-grid relative isolate overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24"
+        className="hero-grid relative isolate aspect-[9/16] overflow-hidden px-4 py-8 sm:aspect-auto sm:px-6 sm:py-16 lg:px-8 lg:py-24"
       >
-        <Image
-          src="/images/institute-hero.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-[67%_center]"
-        />
+        <video
+          aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/institute-hero.png"
+          tabIndex={-1}
+          className="homepage-hero-video absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        >
+          <source src="/videos/homepage-hero.mp4" type="video/mp4" />
+        </video>
 
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-10 bg-linear-to-r from-primary-950 via-primary-950/88 to-primary-900/20"
         />
 
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto flex h-full max-w-7xl flex-col justify-center sm:block sm:h-auto">
           <div className="max-w-6xl">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-bold text-white shadow-sm backdrop-blur-md sm:px-4 sm:text-sm">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold text-white shadow-sm backdrop-blur-md sm:px-4 sm:py-2 sm:text-sm">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-200 opacity-60" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
@@ -83,7 +89,7 @@ export default function Home() {
 
             <h1
               id="hero-heading"
-              className="mt-5 max-w-5xl font-(family-name:--font-sora) text-[2.15rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
+              className="mt-4 max-w-5xl font-(family-name:--font-sora) text-[1.9rem] font-extrabold leading-[1.12] tracking-[-0.04em] text-white sm:mt-5 sm:text-5xl lg:text-6xl"
             >
               World-class learning with the{" "}
               <span className="relative mt-1 inline-block text-primary-200 sm:mt-0 sm:whitespace-nowrap">
@@ -105,47 +111,47 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-3xl font-(family-name:--font-manrope) text-sm leading-7 text-white/75 sm:mt-7 sm:text-lg sm:leading-8">
+            <p className="mt-4 max-w-3xl font-(family-name:--font-manrope) text-[13px] leading-6 text-white/75 sm:mt-7 sm:text-lg sm:leading-8">
               {site.tagline} Learn with experienced educators across school
               subjects, international curricula, entrance preparation and
               future-ready skills.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+            <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-9 sm:flex sm:gap-3">
               <Link
-                href="/find-tutors"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-primary-500 shadow-xl shadow-primary-950/30 transition duration-300 hover:-translate-y-1 hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:px-7 sm:py-4"
+                href={features.tutorDirectory ? "/find-tutors" : "/register"}
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-white px-3 py-3 font-(family-name:--font-manrope) text-xs font-bold text-primary-500 shadow-xl shadow-primary-950/30 transition duration-300 hover:-translate-y-1 hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:gap-2 sm:px-7 sm:py-4 sm:text-sm"
               >
-                Find Your Tutor
+                {features.tutorDirectory ? "Find Your Tutor" : "Request a Demo"}
                 <span aria-hidden="true">→</span>
               </Link>
 
               <Link
-                href="/register"
-                className="inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3.5 font-(family-name:--font-manrope) text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:px-7 sm:py-4"
+                href={features.tutorDirectory ? "/register" : "/courses"}
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-3 py-3 font-(family-name:--font-manrope) text-xs font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950 sm:w-auto sm:px-7 sm:py-4 sm:text-sm"
               >
-                Request a Demo
+                {features.tutorDirectory ? "Request a Demo" : "Explore Programmes"}
               </Link>
             </div>
           </div>
 
-          <div className="mt-9 grid grid-cols-1 gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-12 sm:gap-3 lg:grid-cols-4 lg:gap-4">
             {highlights.map((item) => (
               <article
                 key={item.title}
-                className="group rounded-2xl border border-white/15 bg-primary-950/35 p-4 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-primary-950/50 hover:shadow-lg sm:rounded-3xl sm:p-5"
+                className="group rounded-none border border-white/15 bg-primary-950/35 p-3 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-primary-950/50 hover:shadow-lg sm:p-5"
               >
                 <div className="flex items-center gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/12 text-xs font-extrabold text-primary-100 transition group-hover:bg-white group-hover:text-primary-500">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-white/12 text-[10px] font-extrabold text-primary-100 transition group-hover:bg-white group-hover:text-primary-500 sm:h-9 sm:w-9 sm:text-xs">
                     {item.number}
                   </span>
 
-                  <h2 className="font-(family-name:--font-sora) text-sm font-bold text-white sm:text-base">
+                  <h2 className="font-(family-name:--font-sora) text-xs font-bold text-white sm:text-base">
                     {item.title}
                   </h2>
                 </div>
 
-                <p className="mt-3 text-sm leading-6 text-white/65">
+                <p className="mt-3 hidden text-sm leading-6 text-white/65 sm:block">
                   {item.text}
                 </p>
               </article>
@@ -163,11 +169,7 @@ export default function Home() {
           text="Choose from school tutoring, international curricula, entrance preparation and future skills—with teaching adapted to each learner’s needs."
         />
 
-        <div className="mx-auto mt-9 grid max-w-7xl grid-cols-1 gap-5 sm:mt-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {courses.slice(0, 6).map((course) => (
-            <CourseCard key={course.title} course={course} />
-          ))}
-        </div>
+        <LearningProgramsCarousel courses={courses.slice(0, 6)} />
 
         <div className="mt-8 text-center sm:mt-10">
           <Link
@@ -183,7 +185,7 @@ export default function Home() {
 
       {/* Workflow */}
       <section className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-linear-to-br from-slate-950 via-slate-900 to-primary-900 p-5 text-white sm:p-7 lg:p-9">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-none bg-linear-to-br from-slate-950 via-slate-900 to-primary-900 p-5 text-white sm:p-7 lg:p-9">
           {/* Decorative glow */}
           <div
             aria-hidden="true"
@@ -217,7 +219,7 @@ export default function Home() {
               {workflow.map((step, index) => (
                 <article
                   key={step.title}
-                  className="group rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-primary-300/40 hover:bg-white/12"
+                  className="group rounded-none border border-white/10 bg-white/8 p-4 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-primary-300/40 hover:bg-white/12"
                 >
                   <div className="flex items-center justify-between">
                     <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary-400 font-(family-name:--font-sora) text-xs font-bold text-slate-950">
@@ -260,7 +262,7 @@ export default function Home() {
           {testimonials.map((testimonial) => (
             <figure
               key={`${testimonial.name}-${testimonial.location}`}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-100"
+              className="group relative flex h-full flex-col overflow-hidden rounded-none border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-100"
             >
               <span className="font-(family-name:--font-sora) text-5xl leading-none text-primary-200 transition group-hover:text-primary-300">
                 “
@@ -322,40 +324,13 @@ export default function Home() {
     </div>
 
     {/* FAQ accordion */}
-    <div className="space-y-3">
-      {faqs.map((faq, index) => (
-        <details
-          key={faq.q}
-          className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 open:border-primary-200 open:shadow-xl open:shadow-primary-100/70"
-        >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 font-(family-name:--font-sora) text-sm font-bold leading-6 text-slate-950 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 sm:px-6 sm:py-6 sm:text-base">
-            <span className="flex min-w-0 items-center gap-4">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary-50 text-xs font-bold text-primary-700 transition duration-300 group-open:bg-primary-500 group-open:text-white">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <span>{faq.q}</span>
-            </span>
-
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-xl font-normal text-slate-500 transition duration-300 group-open:rotate-45 group-open:border-primary-500 group-open:bg-primary-500 group-open:text-white">
-              +
-            </span>
-          </summary>
-
-          <div className="px-5 pb-5 sm:px-6 sm:pb-6">
-            <p className="border-t border-slate-100 pt-4 text-sm leading-7 text-slate-600 sm:ml-13">
-              {faq.a}
-            </p>
-          </div>
-        </details>
-      ))}
-    </div>
+    <FaqAccordion faqs={faqs} />
   </div>
 </section>
 
 {/* Final CTA */}
 <section className="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
-  <div className="relative mx-auto max-w-7xl overflow-hidden rounded-4xl border border-primary-200/70 bg-linear-to-r from-primary-50 via-white to-primary-50 px-6 py-8 shadow-xl shadow-primary-100/50 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
+  <div className="relative mx-auto max-w-7xl overflow-hidden rounded-none border border-primary-200/70 bg-linear-to-r from-primary-50 via-white to-primary-50 px-6 py-8 shadow-xl shadow-primary-100/50 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
     <div
       aria-hidden="true"
       className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-primary-300/20 blur-3xl"
@@ -384,10 +359,10 @@ export default function Home() {
 
       <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
         <Link
-          href="/find-tutors"
+          href={features.tutorDirectory ? "/find-tutors" : "/contact"}
           className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
         >
-          Meet Our Tutors
+          {features.tutorDirectory ? "Meet Our Tutors" : "Talk to Our Team"}
         </Link>
 
         <Link

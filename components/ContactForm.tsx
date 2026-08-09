@@ -27,7 +27,7 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit}
       onChange={handleFormChange}
-      className="rounded-4xl border border-slate-200 bg-white p-6 shadow-xl shadow-primary-100/70 sm:p-8"
+      className="rounded-none border border-slate-200 bg-white p-6 shadow-xl shadow-primary-100/70 sm:p-8"
     >
       <div className="mb-7">
         <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
@@ -48,7 +48,7 @@ export default function ContactForm() {
         <div
           role="status"
           aria-live="polite"
-          className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
+          className="mb-6 flex items-start gap-3 rounded-none border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
         >
           <span
             aria-hidden="true"

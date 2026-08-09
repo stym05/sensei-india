@@ -1,11 +1,14 @@
 import Link from "next/link";
 
 import { site } from "@/data/site";
+import { features } from "@/data/features";
 
 const exploreLinks = [
   { label: "About Us", href: "/about" },
   { label: "Programmes", href: "/courses" },
-  { label: "Find Tutors", href: "/find-tutors" },
+  ...(features.tutorDirectory
+    ? [{ label: "Find Tutors", href: "/find-tutors" }]
+    : []),
   { label: "Learning Enquiry", href: "/register" },
   { label: "Contact", href: "/contact" },
 ] as const;

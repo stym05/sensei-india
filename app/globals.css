@@ -69,11 +69,23 @@ textarea {
 
 .hero-grid {
   background-color: var(--primary);
+  background-image: url("/images/institute-hero.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .focus-ring:focus {
   outline: 3px solid rgba(30, 39, 97, 0.42);
   outline-offset: 2px;
+}
+
+.carousel-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes floaty {
@@ -152,5 +164,9 @@ textarea {
   .hero-float-card,
   .tutor-card-enter {
     animation: none;
+  }
+
+  .homepage-hero-video {
+    display: none;
   }
 }

@@ -117,7 +117,7 @@ export default function TermsPage() {
           text={`Please review these terms before using ${site.name}, submitting an enquiry, attending a demo or beginning a tutoring arrangement from India or overseas.`}
         />
 
-        <section className="mt-10 overflow-hidden rounded-4xl border border-primary-100 bg-white shadow-xl shadow-primary-100/50">
+        <section className="mt-10 overflow-hidden rounded-none border border-primary-100 bg-white shadow-xl shadow-primary-100/50">
           <div className="grid gap-6 bg-linear-to-br from-primary-50 via-white to-primary-50 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-600">
@@ -135,7 +135,7 @@ export default function TermsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white bg-white/80 px-5 py-4 shadow-sm backdrop-blur">
+            <div className="rounded-none border border-white bg-white/80 px-5 py-4 shadow-sm backdrop-blur">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">
                 Last updated
               </p>
@@ -149,7 +149,7 @@ export default function TermsPage() {
 
         <div className="mt-8 grid items-start gap-8 lg:grid-cols-[270px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-24">
-            <div className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-none border border-slate-200 bg-white p-5 shadow-sm">
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-600">
                 On this page
               </p>
@@ -183,7 +183,7 @@ export default function TermsPage() {
               <section
                 id={term.id}
                 key={term.id}
-                className="scroll-mt-28 rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-100/60 sm:p-8"
+                className="scroll-mt-28 rounded-none border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-100/60 sm:p-8"
               >
                 <div className="flex items-start gap-4 sm:gap-5">
                   <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-primary-100 text-xs font-extrabold text-primary-700">
@@ -205,7 +205,7 @@ export default function TermsPage() {
           </div>
         </div>
 
-        <section className="mt-8 overflow-hidden rounded-4xl bg-slate-950 p-6 text-white shadow-xl shadow-slate-200 sm:p-8 lg:p-10">
+        <section className="mt-8 overflow-hidden rounded-none bg-slate-950 p-6 text-white shadow-xl shadow-slate-200 sm:p-8 lg:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary-400">

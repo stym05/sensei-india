@@ -5,12 +5,21 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { site } from "@/data/site";
+import { features } from "@/data/features";
+
+const aboutLinks = [
+  { label: "Our Story", href: "/about/our-story" },
+  { label: "Founder & Team", href: "/about/founder-team" },
+  { label: "Join Us", href: "/about/join-us" },
+] as const;
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about", children: aboutLinks },
   { label: "Programmes", href: "/courses" },
-  { label: "Find Tutors", href: "/find-tutors" },
+  ...(features.tutorDirectory
+    ? [{ label: "Find Tutors", href: "/find-tutors" }]
+    : []),
   { label: "Enquire", href: "/register" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -18,6 +27,8 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isDesktopAboutOpen, setIsDesktopAboutOpen] = useState(false);
 
   function isActiveLink(href: string) {
     if (href === "/") {
@@ -29,6 +40,8 @@ export default function Navbar() {
 
   function closeMenu() {
     setIsMenuOpen(false);
+    setIsAboutOpen(false);
+    setIsDesktopAboutOpen(false);
   }
 
   return (
@@ -61,13 +74,73 @@ export default function Navbar() {
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-0.5 md:flex">
-            {links.map(({ label, href }) => {
-              const isActive = isActiveLink(href);
+            {links.map((item) => {
+              const isActive = isActiveLink(item.href);
+
+              if ("children" in item) {
+                return (
+                  <div
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => setIsDesktopAboutOpen(true)}
+                    onMouseLeave={() => setIsDesktopAboutOpen(false)}
+                    onFocusCapture={() => setIsDesktopAboutOpen(true)}
+                    onBlurCapture={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                        setIsDesktopAboutOpen(false);
+                      }
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsDesktopAboutOpen(false)}
+                      aria-current={pathname === item.href ? "page" : undefined}
+                      className={`relative inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                        isActive
+                          ? "bg-primary-50 text-primary-700"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                      }`}
+                    >
+                      {item.label}
+                      <span aria-hidden="true" className={`text-[10px] transition-transform duration-200 ${isDesktopAboutOpen ? "rotate-180" : ""}`}>▼</span>
+                    </Link>
+
+                    <div className={`absolute left-1/2 top-full w-56 -translate-x-1/2 pt-2 transition duration-200 ${
+                      isDesktopAboutOpen
+                        ? "visible opacity-100"
+                        : "invisible opacity-0"
+                    }`}>
+                      <div className="border border-slate-200 bg-white p-2 shadow-xl shadow-slate-200/60">
+                        {item.children.map((child) => {
+                          const childActive = pathname === child.href;
+
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setIsDesktopAboutOpen(false)}
+                              aria-current={childActive ? "page" : undefined}
+                              className={`flex items-center justify-between px-3 py-2.5 text-sm font-semibold transition ${
+                                childActive
+                                  ? "bg-primary-50 text-primary-700"
+                                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                              }`}
+                            >
+                              {child.label}
+                              <span aria-hidden="true" className="text-primary-300">→</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
 
               return (
                 <Link
-                  key={href}
-                  href={href}
+                  key={item.href}
+                  href={item.href}
                   aria-current={isActive ? "page" : undefined}
                   className={`group relative rounded-full px-3.5 py-2 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                     isActive
@@ -75,7 +148,7 @@ export default function Navbar() {
                       : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                   }`}
                 >
-                  {label}
+                  {item.label}
 
                   <span
                     aria-hidden="true"
@@ -151,15 +224,64 @@ export default function Navbar() {
           }`}
         >
           <div className="min-h-0">
-            <div className="rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl shadow-slate-200/50">
+            <div className="rounded-none border border-slate-200 bg-white p-2.5 shadow-xl shadow-slate-200/50">
               <div className="flex flex-col gap-0.5">
-                {links.map(({ label, href }) => {
-                  const isActive = isActiveLink(href);
+                {links.map((item) => {
+                  const isActive = isActiveLink(item.href);
+
+                  if ("children" in item) {
+                    return (
+                      <div key={item.href}>
+                        <button
+                          type="button"
+                          aria-expanded={isAboutOpen}
+                          aria-controls="mobile-about-navigation"
+                          onClick={() => setIsAboutOpen((current) => !current)}
+                          className={`flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
+                            isActive
+                              ? "bg-primary-50 text-primary-700"
+                              : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                          }`}
+                        >
+                          <span>{item.label}</span>
+                          <span aria-hidden="true" className={`text-xs transition-transform ${isAboutOpen ? "rotate-180" : ""}`}>▼</span>
+                        </button>
+
+                        <div
+                          id="mobile-about-navigation"
+                          className={`grid transition-all duration-200 ${
+                            isAboutOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                          }`}
+                        >
+                          <div className="min-h-0 overflow-hidden">
+                            <div className="ml-4 border-l border-primary-100 py-1 pl-2">
+                              {item.children.map((child) => (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  onClick={closeMenu}
+                                  aria-current={pathname === child.href ? "page" : undefined}
+                                  className={`flex items-center justify-between px-3 py-2 text-sm font-medium transition ${
+                                    pathname === child.href
+                                      ? "bg-primary-50 text-primary-700"
+                                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-950"
+                                  }`}
+                                >
+                                  {child.label}
+                                  <span aria-hidden="true">→</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
 
                   return (
                     <Link
-                      key={href}
-                      href={href}
+                      key={item.href}
+                      href={item.href}
                       onClick={closeMenu}
                       aria-current={
                         isActive ? "page" : undefined
@@ -170,7 +292,7 @@ export default function Navbar() {
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                       }`}
                     >
-                      <span>{label}</span>
+                      <span>{item.label}</span>
 
                       <span
                         aria-hidden="true"

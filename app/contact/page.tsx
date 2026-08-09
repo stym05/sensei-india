@@ -41,7 +41,7 @@ export default function ContactPage() {
         className="mx-auto mt-12 grid max-w-6xl items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]"
       >
         {/* Contact information */}
-        <aside className="relative overflow-hidden rounded-4xl bg-slate-950 p-7 text-white shadow-2xl shadow-slate-300/50 sm:p-9 lg:sticky lg:top-28">
+        <aside className="relative overflow-hidden rounded-none bg-slate-950 p-7 text-white shadow-2xl shadow-slate-300/50 sm:p-9 lg:sticky lg:top-28">
           <div
             aria-hidden="true"
             className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl"
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     <a
                       key={detail.label}
                       href={detail.href}
-                      className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+                      className="group flex items-center gap-4 rounded-none border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
                     >
                       {content}
                     </a>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                 return (
                   <div
                     key={detail.label}
-                    className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4"
+                    className="group flex items-center gap-4 rounded-none border border-white/10 bg-white/5 p-4"
                   >
                     {content}
                   </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
               })}
             </div>
 
-            <div className="mt-8 rounded-3xl border border-primary-400/20 bg-primary-400/10 p-5">
+            <div className="mt-8 rounded-none border border-primary-400/20 bg-primary-400/10 p-5">
               <p className="font-(family-name:--font-sora) font-bold text-white">
                 Requesting a demo from overseas?
               </p>

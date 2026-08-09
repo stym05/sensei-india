@@ -49,7 +49,7 @@ export default function PrivacyPage() {
         {sections.map((section, index) => (
           <section
             key={section.title}
-            className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7"
+            className="rounded-none border border-slate-200 bg-white p-6 shadow-sm sm:p-7"
           >
             <div className="flex items-start gap-4">
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary-50 text-xs font-extrabold text-primary-700">

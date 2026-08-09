@@ -363,11 +363,11 @@ export default function RegisterForm() {
 
   if (submitted) {
     return (
-      <div className="mx-auto max-w-5xl rounded-4xl border border-emerald-200 bg-white p-5 shadow-2xl shadow-emerald-100/60 sm:p-8">
+      <div className="mx-auto max-w-5xl rounded-none border border-emerald-200 bg-white p-5 shadow-2xl shadow-emerald-100/60 sm:p-8">
         <div
           role="status"
           aria-live="polite"
-          className="rounded-3xl bg-emerald-50 px-6 py-10 text-center sm:px-10"
+          className="rounded-none bg-emerald-50 px-6 py-10 text-center sm:px-10"
         >
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-500 text-3xl font-bold text-white shadow-lg shadow-emerald-200">
             ✓
@@ -400,7 +400,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl rounded-4xl border border-slate-200 bg-white p-5 shadow-2xl shadow-primary-100/70 sm:p-8 lg:p-10">
+    <div className="mx-auto max-w-5xl rounded-none border border-slate-200 bg-white p-5 shadow-2xl shadow-primary-100/70 sm:p-8 lg:p-10">
       <div className="mb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-2 text-xs font-bold text-primary-700">
           <span aria-hidden="true">🌍</span>
@@ -779,7 +779,7 @@ export default function RegisterForm() {
           />
         </div>
 
-        <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 md:col-span-2">
+        <div className="flex items-start gap-3 rounded-none border border-slate-200 bg-slate-50 p-4 md:col-span-2">
           <input
             id="registration-consent"
             name="consent"
