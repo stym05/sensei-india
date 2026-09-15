@@ -148,6 +148,43 @@ textarea {
   animation: tutor-card-enter 0.55s ease-out both;
 }
 
+@keyframes founder-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.founder-reveal {
+  animation: founder-reveal 0.75s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.founder-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.founder-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.founder-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.founder-portrait-image {
+  transform: scale(1.01);
+  transition: transform 1s cubic-bezier(.22, 1, .36, 1), filter 0.7s ease;
+}
+
+.group:hover .founder-portrait-image {
+  filter: saturate(1.06) contrast(1.02);
+  transform: scale(1.035);
+}
+
 @media (min-width: 640px) {
   .teacher-hero-image {
     object-position: center;
@@ -162,8 +199,13 @@ textarea {
   .floaty,
   .teacher-hero-image,
   .hero-float-card,
-  .tutor-card-enter {
+  .tutor-card-enter,
+  .founder-reveal {
     animation: none;
+  }
+
+  .founder-portrait-image {
+    transition: none;
   }
 
   .homepage-hero-video {
