@@ -60,11 +60,11 @@ const approach = [
 export default function FounderTeamPage() {
   return (
     <main className="overflow-hidden bg-white text-slate-950">
-      <section className="relative border-b border-slate-200 bg-[#f6f8fc]">
+      <section className="relative border-b border-slate-200 bg-[#f7f9fc]">
         <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-primary-600 via-primary-400 to-sky-300" aria-hidden="true" />
         <div className="absolute -right-48 top-8 h-112 w-112 rounded-full bg-primary-100/70 blur-3xl" aria-hidden="true" />
 
-        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:px-8 lg:pb-20">
           <Link
             href="/about"
             className="founder-reveal inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 transition hover:gap-3 hover:text-primary-700"
@@ -72,22 +72,22 @@ export default function FounderTeamPage() {
             <span aria-hidden="true">←</span> About Sensei India
           </Link>
 
-          <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:gap-20">
+          <div className="mt-8 grid items-center gap-10 md:grid-cols-[1fr_22rem] lg:mt-10 lg:grid-cols-[1fr_23rem] lg:gap-16">
             <div className="max-w-2xl">
               <Eyebrow>Founder & Education Mentor</Eyebrow>
-              <h1 className="founder-reveal founder-delay-1 mt-5 font-(family-name:--font-sora) text-4xl font-bold leading-[1.04] tracking-[-0.045em] text-slate-950 sm:text-5xl lg:text-6xl">
+              <h1 className="founder-reveal founder-delay-1 mt-4 font-(family-name:--font-sora) text-4xl font-bold leading-[1.06] tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-[3.5rem]">
                 Rohit Walia
               </h1>
-              <p className="founder-reveal founder-delay-2 mt-6 max-w-xl text-xl font-semibold leading-8 tracking-[-0.015em] text-slate-700 sm:text-2xl sm:leading-9">
+              <p className="founder-reveal founder-delay-2 mt-5 max-w-xl text-lg font-semibold leading-7 tracking-[-0.015em] text-slate-700 sm:text-xl sm:leading-8">
                 Helping students learn with clarity, confidence and direction.
               </p>
-              <p className="founder-reveal founder-delay-2 mt-5 max-w-xl text-base leading-8 text-slate-600">
+              <p className="founder-reveal founder-delay-2 mt-4 max-w-xl text-[15px] leading-7 text-slate-600 sm:text-base">
                 Founder of SenseiIndia.com, a global academic coaching and mentoring
                 platform providing personalised support across school education,
                 international curricula and competitive examinations.
               </p>
 
-              <div className="founder-reveal founder-delay-3 mt-9 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-slate-300 pt-6">
+              <div className="founder-reveal founder-delay-3 mt-7 flex flex-wrap items-center gap-x-5 gap-y-4 border-t border-slate-300 pt-5 sm:gap-x-6">
                 <Stat value="10+ years" label="Teaching & mentoring" />
                 <span className="hidden h-9 w-px bg-slate-300 sm:block" aria-hidden="true" />
                 <Stat value="Worldwide" label="Academic support" />
@@ -96,44 +96,43 @@ export default function FounderTeamPage() {
               </div>
             </div>
 
-            <figure className="founder-reveal founder-delay-2 group relative mx-auto w-full max-w-lg lg:ml-auto">
-              <div className="absolute -bottom-4 -left-4 h-full w-full rounded-[2rem] border border-primary-200 bg-primary-50" aria-hidden="true" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#801b9a] shadow-2xl shadow-slate-300/70">
+            <figure className="founder-reveal founder-delay-2 group relative mx-auto w-full max-w-[20rem] sm:max-w-[22rem] md:ml-auto lg:max-w-[23rem]">
+              <div className="absolute -left-3 -top-1 aspect-square w-full rounded-full border border-primary-200 bg-primary-50" aria-hidden="true" />
+              <div className="relative aspect-square overflow-hidden rounded-full border-[6px] border-white bg-[#801b9a] shadow-xl shadow-slate-300/60">
                 <Image
-                  src="/images/rohit-walia-founder.png"
+                  src="/images/rohit-walia-founder-2026.png"
                   alt="Rohit Walia, Founder and Education Mentor at Sensei India"
                   fill
                   priority
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 768px) 368px, (min-width: 640px) 352px, 320px"
                   className="founder-portrait-image object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
-                  <p className="font-(family-name:--font-sora) text-lg font-semibold">Education should feel personal.</p>
-                  <p className="mt-1.5 text-xs text-white/65">New Delhi · Teaching students worldwide</p>
-                </figcaption>
               </div>
+              <figcaption className="relative mt-5 text-center">
+                <p className="font-(family-name:--font-sora) text-sm font-semibold text-slate-800">Education should feel personal.</p>
+                <p className="mt-1 text-xs text-slate-500">New Delhi · Teaching students worldwide</p>
+              </figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.38fr_1fr] lg:gap-24">
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.36fr_1fr] lg:gap-16">
           <div>
             <Eyebrow>Profile</Eyebrow>
-            <h2 className="mt-4 max-w-xs font-(family-name:--font-sora) text-2xl font-bold leading-tight tracking-[-0.03em] sm:text-3xl">
+            <h2 className="mt-3 max-w-xs font-(family-name:--font-sora) text-2xl font-bold leading-tight tracking-[-0.03em] sm:text-[1.75rem]">
               Engineering discipline meets educational empathy.
             </h2>
           </div>
 
           <div>
-            <p className="max-w-4xl font-(family-name:--font-sora) text-xl font-semibold leading-9 tracking-[-0.02em] text-slate-800 sm:text-2xl sm:leading-10">
+            <p className="max-w-4xl font-(family-name:--font-sora) text-lg font-semibold leading-8 tracking-[-0.02em] text-slate-800 sm:text-xl sm:leading-9">
               A Mechanical Engineering graduate from Jamia Millia Islamia, New
               Delhi, Rohit brings more than a decade of teaching and mentoring
               experience to Sensei India.
             </p>
-            <div className="mt-8 grid gap-6 text-base leading-8 text-slate-600 sm:grid-cols-2 sm:gap-10">
+            <div className="mt-6 grid gap-5 text-[15px] leading-7 text-slate-600 sm:grid-cols-2 sm:gap-8">
               <p>
                 His approach combines conceptual clarity, structured learning and
                 personalised attention. Every programme is built around how a
@@ -145,7 +144,7 @@ export default function FounderTeamPage() {
                 independent learners.
               </p>
             </div>
-            <dl className="mt-10 grid gap-y-5 border-y border-slate-200 py-6 sm:grid-cols-3 sm:gap-x-8">
+            <dl className="mt-8 grid gap-y-5 border-y border-slate-200 py-5 sm:grid-cols-3 sm:gap-x-8">
               <Credential term="Education" detail="Mechanical Engineering" />
               <Credential term="Institution" detail="Jamia Millia Islamia" />
               <Credential term="Experience" detail="10+ years in education" />
@@ -154,23 +153,23 @@ export default function FounderTeamPage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 px-4 py-16 text-white sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-slate-950 px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <Eyebrow light>Academic expertise</Eyebrow>
-              <h2 className="mt-4 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
+              <h2 className="mt-3 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.035em] sm:text-3xl">
                 Support for every stage of learning.
               </h2>
             </div>
-            <p className="max-w-2xl text-base leading-8 text-slate-300">
+            <p className="max-w-2xl text-[15px] leading-7 text-slate-300">
               From early school years to advanced mathematics and competitive
               preparation, every programme is aligned with the learner’s level,
               goals and examination requirements.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3 md:gap-0">
+          <div className="mt-9 grid gap-8 border-t border-white/15 pt-8 md:grid-cols-3 md:gap-0">
             {expertiseGroups.map((group, index) => (
               <article key={group.label} className={`md:px-8 ${index === 0 ? "md:pl-0" : "md:border-l md:border-white/15"}`}>
                 <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-300">{group.label}</p>
@@ -188,21 +187,21 @@ export default function FounderTeamPage() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.42fr_1fr] lg:gap-24">
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 lg:grid-cols-[0.4fr_1fr] lg:gap-16">
             <div>
               <Eyebrow>Learning formats</Eyebrow>
-              <h2 className="mt-4 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
+              <h2 className="mt-3 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.035em] sm:text-3xl">
                 Personal when needed. Collaborative when valuable.
               </h2>
             </div>
 
-            <div className="grid gap-10 sm:grid-cols-2 sm:gap-0">
+            <div className="grid gap-8 sm:grid-cols-2 sm:gap-0">
               <article className="sm:pr-10">
                 <span className="font-(family-name:--font-sora) text-sm font-bold text-primary-600">01</span>
-                <h3 className="mt-5 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.025em]">One-to-one tuition</h3>
-                <p className="mt-4 text-base leading-8 text-slate-600">
+                <h3 className="mt-4 font-(family-name:--font-sora) text-xl font-bold tracking-[-0.025em]">One-to-one tuition</h3>
+                <p className="mt-3 text-[15px] leading-7 text-slate-600">
                   Focused sessions shaped around the student’s goals, syllabus,
                   examination pattern and pace. Each learner receives direct
                   attention and a learning plan designed for their needs.
@@ -210,8 +209,8 @@ export default function FounderTeamPage() {
               </article>
               <article className="border-t border-slate-200 pt-10 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0">
                 <span className="font-(family-name:--font-sora) text-sm font-bold text-primary-600">02</span>
-                <h3 className="mt-5 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.025em]">Group tuition</h3>
-                <p className="mt-4 text-base leading-8 text-slate-600">
+                <h3 className="mt-4 font-(family-name:--font-sora) text-xl font-bold tracking-[-0.025em]">Group tuition</h3>
+                <p className="mt-3 text-[15px] leading-7 text-slate-600">
                   Expert-led sessions where students discuss ideas, solve
                   challenging problems and strengthen concepts through structured,
                   collaborative learning.
@@ -220,7 +219,7 @@ export default function FounderTeamPage() {
             </div>
           </div>
 
-          <p className="mt-12 border-l-2 border-primary-400 pl-5 text-sm leading-7 text-slate-600 sm:ml-[calc(29%+1rem)] sm:max-w-3xl sm:text-base">
+          <p className="mt-9 border-l-2 border-primary-400 pl-5 text-sm leading-7 text-slate-600 sm:ml-[calc(29%+1rem)] sm:max-w-3xl">
             Support can focus on one subject or extend to complete academic
             mentoring, foundation study, international curriculum support and
             competitive examination preparation.
@@ -228,12 +227,12 @@ export default function FounderTeamPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#f6f8fc] px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+      <section className="border-y border-slate-200 bg-[#f7f9fc] px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-[0.45fr_1fr] lg:items-center lg:gap-20">
             <div>
               <Eyebrow>Global curricula</Eyebrow>
-              <h2 className="mt-4 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.03em] sm:text-3xl">Teaching across borders</h2>
+              <h2 className="mt-3 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.03em] sm:text-[1.75rem]">Teaching across borders</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">
                 Methods adapt to each syllabus, academic level and learning objective.
               </p>
@@ -249,16 +248,16 @@ export default function FounderTeamPage() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
             <Eyebrow>Mentoring approach</Eyebrow>
-            <h2 className="mt-4 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.035em] sm:text-4xl">
+            <h2 className="mt-3 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.035em] sm:text-3xl">
               A clear route from potential to progress.
             </h2>
           </div>
 
-          <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          <ol className="mt-9 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             {approach.map((item, index) => (
               <li key={item.number} className={`relative lg:px-8 ${index === 0 ? "lg:pl-0" : "lg:border-l lg:border-slate-200"}`}>
                 <span className="font-(family-name:--font-sora) text-xs font-bold text-primary-600">{item.number}</span>
@@ -268,12 +267,12 @@ export default function FounderTeamPage() {
             ))}
           </ol>
 
-          <div className="mt-16 grid gap-8 border-t border-slate-200 pt-10 lg:grid-cols-[0.4fr_1fr] lg:gap-20">
+          <div className="mt-12 grid gap-7 border-t border-slate-200 pt-8 lg:grid-cols-[0.4fr_1fr] lg:gap-14">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-600">Student progress</p>
               <p className="mt-3 font-(family-name:--font-sora) text-xl font-bold">Strong foundations open doors.</p>
             </div>
-            <p className="max-w-3xl text-base leading-8 text-slate-600">
+            <p className="max-w-3xl text-[15px] leading-7 text-slate-600">
               Rohit has guided students from diverse academic backgrounds toward
               improved school performance, entrance examinations and competitive
               programmes. Students mentored through his programmes have progressed
@@ -283,31 +282,43 @@ export default function FounderTeamPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-primary-600 px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-16">
-          <span className="absolute -right-4 -top-28 font-serif text-[20rem] leading-none text-white/8" aria-hidden="true">“</span>
-          <div className="relative grid gap-8 lg:grid-cols-[0.34fr_1fr] lg:gap-14">
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-100">Founder’s philosophy</p>
-              <p className="mt-3 text-sm text-primary-100/70">Rohit Walia</p>
+      <section className="px-4 pb-14 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-primary-700/50 bg-linear-to-br from-slate-950 via-primary-950 to-primary-800 px-6 py-7 text-white shadow-lg shadow-primary-950/10 sm:px-8 sm:py-8 lg:px-10">
+          <div className="absolute -right-12 -top-20 h-48 w-48 rounded-full bg-primary-400/15 blur-2xl" aria-hidden="true" />
+          <div className="absolute bottom-0 right-8 flex gap-1.5 opacity-40" aria-hidden="true">
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+          </div>
+
+          <div className="relative grid gap-5 sm:grid-cols-[10rem_1px_1fr] sm:items-center sm:gap-7 lg:gap-9">
+            <div className="flex items-center gap-3 sm:block">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-sky-300/30 bg-sky-300/10 font-serif text-xl leading-none text-sky-200" aria-hidden="true">“</span>
+              <div className="sm:mt-4">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-sky-200">Founder’s philosophy</p>
+                <p className="mt-1 text-xs text-white/55">Rohit Walia</p>
+              </div>
             </div>
-            <blockquote className="font-(family-name:--font-sora) text-xl font-semibold leading-relaxed tracking-[-0.025em] sm:text-2xl lg:text-3xl">
-              “Every student has the potential to excel. With the right teacher,
+
+            <span className="hidden h-full w-px bg-white/15 sm:block" aria-hidden="true" />
+
+            <blockquote className="max-w-3xl font-(family-name:--font-sora) text-base font-medium leading-7 tracking-[-0.015em] text-white/90 sm:text-lg sm:leading-8">
+              Every student has the potential to excel. With the right teacher,
               strong fundamentals, personalised guidance and consistent effort,
-              every learner can move closer to their highest potential.”
+              every learner can move closer to their highest potential.
             </blockquote>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-[#f6f8fc] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+      <section className="border-t border-slate-200 bg-[#f7f9fc] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div>
             <Eyebrow>Global vision</Eyebrow>
-            <h2 className="mt-4 max-w-4xl font-(family-name:--font-sora) text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-4xl">
+            <h2 className="mt-3 max-w-4xl font-(family-name:--font-sora) text-2xl font-bold leading-tight tracking-[-0.04em] sm:text-3xl">
               The right teacher. The right guidance.<br className="hidden sm:block" /> The right learning strategy.
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-slate-600">
               Sensei India’s mission is to make expert, personalised education
               accessible regardless of country, curriculum, stream or academic level.
             </p>

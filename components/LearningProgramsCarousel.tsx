@@ -77,8 +77,8 @@ export default function LearningProgramsCarousel({
   }
 
   return (
-    <div className="mx-auto mt-9 max-w-7xl sm:mt-12">
-      <div className="mb-5 flex items-center justify-between gap-4">
+    <div className="mx-auto mt-7 max-w-7xl sm:mt-9 lg:mt-10">
+      <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5 sm:gap-4">
         <p className="text-xs font-semibold text-slate-500 sm:text-sm">
           Swipe or use the arrows to explore programmes
         </p>
@@ -89,7 +89,7 @@ export default function LearningProgramsCarousel({
             aria-label="Previous learning programmes"
             disabled={activeIndex === 0}
             onClick={() => scrollToIndex(activeIndex - 1)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-lg text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-base text-slate-700 shadow-sm transition hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-35 sm:text-lg"
           >
             ←
           </button>
@@ -98,7 +98,7 @@ export default function LearningProgramsCarousel({
             aria-label="Next learning programmes"
             disabled={activeIndex >= lastIndex}
             onClick={() => scrollToIndex(activeIndex + 1)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-lg text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-base text-slate-700 shadow-sm transition hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-35 sm:text-lg"
           >
             →
           </button>
@@ -114,7 +114,7 @@ export default function LearningProgramsCarousel({
         {courses.map((course) => (
           <div
             key={course.title}
-            className="w-[86%] shrink-0 snap-start sm:w-[calc((100%_-_1.25rem)/2)] lg:w-[calc((100%_-_3rem)/3)]"
+            className="w-[90%] shrink-0 snap-start sm:w-[calc((100%_-_1.25rem)/2)] lg:w-[calc((100%_-_3rem)/3)]"
           >
             <CourseCard course={course} />
           </div>

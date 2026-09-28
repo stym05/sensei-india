@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import FaqAccordion from "@/components/FaqAccordion";
+import JoinApplicationForm from "@/components/JoinApplicationForm";
 import SectionTitle from "@/components/SectionTitle";
 import { site } from "@/data/site";
 
@@ -9,211 +11,136 @@ const opportunities = [
     title: "Online Educators",
     type: "Teaching",
     mode: "Remote · Flexible",
-    text: "Teach school subjects, international curricula, entrance examinations, languages or future skills through focused live lessons.",
-    idealFor: "Subject experts who can explain clearly, adapt thoughtfully and build learner confidence.",
+    text: "Teach school subjects, international curricula, entrance examinations or future skills through focused live lessons.",
   },
   {
     title: "Academic Counsellors",
     type: "Learner Success",
     mode: "India · Remote/Hybrid",
-    text: "Understand enquiries, communicate with families and coordinate suitable tutors, demo sessions and learning plans.",
-    idealFor: "Education professionals with empathy, organisation and confident communication.",
+    text: "Support families, coordinate tutors and help shape suitable learning plans.",
   },
   {
     title: "Curriculum Specialists",
     type: "Academic Quality",
     mode: "Remote · Project-based",
-    text: "Support curriculum mapping, programme design, assessment resources and academic quality across education systems.",
-    idealFor: "Curriculum-aware educators and content specialists with strong attention to detail.",
+    text: "Support curriculum mapping, assessment resources and academic quality across education systems.",
   },
-];
-
-const benefits = [
-  { number: "01", title: "Teach across borders", text: "Work with learners from different countries, curricula and academic contexts." },
-  { number: "02", title: "Keep learning personal", text: "Focus on individual understanding instead of delivering a fixed one-size-fits-all class." },
-  { number: "03", title: "Work with flexibility", text: "Coordinate availability around suitable online schedules and learner time zones." },
-  { number: "04", title: "Receive coordination support", text: "Our team helps with learner requirements, demos, communication and scheduling." },
-];
-
-const qualities = [
-  "Strong subject knowledge or relevant academic expertise",
-  "Clear, patient and respectful communication",
-  "Reliable internet, suitable teaching setup and punctuality",
-  "Preparation aligned with the learner’s curriculum and goals",
-  "Professional communication with learners and guardians",
-  "A genuine commitment to learner safety and progress",
-];
+] as const;
 
 const applicationSteps = [
-  { title: "Introduce yourself", text: "Email your profile, experience, subjects, location, time zone and availability." },
-  { title: "Academic conversation", text: "Discuss your expertise, teaching approach and the learners you are best suited to support." },
-  { title: "Review and demonstration", text: "Complete relevant verification and, where requested, a short teaching demonstration." },
-  { title: "Suitable opportunities", text: "We contact you when a learner requirement or academy role aligns with your profile." },
-];
+  { title: "Introduce yourself", text: "Share your profile, subjects, experience, time zone and availability." },
+  { title: "Conversation and review", text: "Discuss your expertise and complete any relevant checks or teaching demonstration." },
+  { title: "Suitable opportunities", text: "We contact you when a learner or academy requirement matches your profile." },
+] as const;
 
 const joinFaqs = [
   { q: "Can educators apply from outside India?", a: "Yes. Online educators may express interest from any country, subject to suitable expertise, reliable availability and the ability to support the curricula and time zones required by our learners." },
   { q: "Do I need prior online teaching experience?", a: "Prior online experience is helpful but not always essential. Strong subject knowledge, clear communication, preparation and confidence using basic online teaching tools are important." },
   { q: "Does submitting a profile guarantee an opportunity?", a: "No. An application is an expression of interest. Opportunities depend on current learner requirements, curriculum fit, availability, review and successful completion of any required verification or demonstration." },
-  { q: "What should I include in my email?", a: "Include your CV or professional profile, subjects and levels taught, qualifications, teaching experience, languages, location, time zone, weekly availability and preferred type of role." },
-];
+] as const;
 
 export default function JoinUsPage() {
-  const applicationHref = `mailto:${site.email}?subject=Join Sensei India - Expression of Interest`;
-
   return (
-    <main className="overflow-hidden pb-20">
-      <section className="bg-primary-950 px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
+    <main className="overflow-x-hidden bg-white">
+      <section className="relative isolate overflow-hidden border-b border-slate-200 bg-[#f8f7ff] px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
+        <div className="absolute -left-24 top-0 -z-10 h-72 w-72 rounded-full bg-blue-200/35 blur-3xl" aria-hidden="true" />
+        <div className="absolute -right-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-cyan-200/35 blur-3xl" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 opacity-30 [background-image:radial-gradient(#a5b4fc_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true" />
+
         <div className="mx-auto max-w-7xl">
-          <Link href="/about" className="text-sm font-bold text-primary-200 transition hover:text-white">
-            ← About Sensei India
-          </Link>
+          <Link href="/about" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-slate-500 transition hover:text-blue-700">← About Sensei India</Link>
 
-          <div className="mt-10 grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-            <div>
-              <div className="inline-flex items-center gap-2 border border-white/15 bg-white/8 px-3.5 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-primary-200">
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                Expressions of interest welcome
+          <div className="relative mt-4 grid items-center gap-5 sm:mt-6 sm:gap-7 lg:grid-cols-[0.68fr_1fr] lg:gap-10">
+            <div className="order-2 mx-auto w-full max-w-sm max-sm:absolute max-sm:bottom-0 max-sm:left-[-0.75rem] max-sm:w-[46%] max-sm:max-w-[180px] sm:relative sm:max-w-md lg:order-1 lg:max-w-lg">
+              <div className="absolute left-1/2 top-1/2 h-[88%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-blue-200/75 to-cyan-100/70 sm:h-[74%] sm:w-[74%]" aria-hidden="true" />
+              <div className="absolute left-1 top-10 hidden h-16 w-16 rounded-full border-[11px] border-amber-200/75 sm:block sm:h-20 sm:w-20" aria-hidden="true" />
+              <Image src="/images/join-us-guide-present.png" alt="Educator presenting opportunities to join Sensei India" width={1028} height={1530} priority className="relative mx-auto h-auto w-[82%] object-contain drop-shadow-[0_20px_18px_rgba(30,64,175,0.2)] sm:w-[58%] lg:w-[64%]" sizes="(min-width: 1024px) 310px, (min-width: 640px) 270px, 160px" />
+              <div className="absolute bottom-8 left-0 hidden rounded-2xl rounded-br-sm border border-blue-100 bg-white px-4 py-3 shadow-xl shadow-blue-200/60 sm:block">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-blue-600">Join our community</p>
+                <p className="mt-0.5 text-xs font-semibold text-slate-700">Teach · Support · Create</p>
               </div>
-              <h1 className="mt-5 max-w-4xl font-(family-name:--font-sora) text-4xl font-bold leading-[1.08] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Do work that helps learners believe in themselves.
-              </h1>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-                Join an India-based academy building thoughtful learning
-                relationships with students and families around the world.
+            </div>
+
+            <div className="order-1 max-w-3xl lg:order-2">
+              <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-[11px] font-bold text-blue-700 shadow-sm sm:px-3.5 sm:py-2 sm:text-xs">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" /> Expressions of interest welcome
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <a href={applicationHref} className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-primary-500 transition hover:-translate-y-0.5 hover:bg-primary-50">
-                  Send Your Profile <span aria-hidden="true">→</span>
-                </a>
-                <a href="#opportunities" className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/10">
-                  Explore Opportunities
-                </a>
+              <h1 className="mt-3.5 font-(family-name:--font-sora) text-[1.85rem] font-bold leading-[1.12] tracking-[-0.04em] text-slate-950 sm:mt-4 sm:text-4xl lg:text-5xl">
+                Do meaningful work that helps learners grow.
+              </h1>
+              <p className="mt-3.5 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
+                Connect your expertise with learners and families around the world.
+              </p>
+              <div className="mt-5 flex flex-col gap-2.5 sm:mt-6 sm:flex-row sm:gap-3">
+                <a href="#apply" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">Send your profile <span aria-hidden="true">→</span></a>
+                <a href="#opportunities" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700">Explore opportunities</a>
               </div>
+              <ul className="mt-5 flex min-h-48 flex-col content-start gap-2 border-t border-slate-200 pl-[46%] pt-3.5 text-xs font-semibold text-slate-600 sm:mt-6 sm:min-h-0 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:pl-0 sm:text-sm">
+                <li>✓ Worldwide learners</li><li>✓ Flexible online work</li><li>✓ Learner-first culture</li>
+              </ul>
             </div>
 
-            <div className="grid gap-px bg-white/10 sm:grid-cols-3 lg:grid-cols-1">
-              {["Worldwide learners", "Flexible online work", "Learner-first culture"].map((item, index) => (
-                <div key={item} className="flex items-center gap-4 bg-white/6 p-5 backdrop-blur">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/15 text-xs font-extrabold text-primary-200">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm font-bold text-white/85">{item}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="opportunities" className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="Ways to contribute"
-          title="Find where your strengths can make a difference"
-          text="We welcome expressions of interest across teaching, learner support and academic quality. Availability depends on current academy and learner requirements."
-        />
-
-        <div className="mx-auto mt-10 grid max-w-7xl gap-px bg-slate-200 lg:grid-cols-3">
+      <section id="opportunities" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <SectionTitle eyebrow="Ways to contribute" title="Find where your strengths fit" text="Explore teaching, learner support and academic quality opportunities based on current academy requirements." />
+        <div className="mx-auto mt-6 grid max-w-7xl gap-3 sm:mt-7 lg:grid-cols-3 lg:gap-4">
           {opportunities.map((opportunity, index) => (
-            <article key={opportunity.title} className="group flex h-full flex-col bg-white p-7 transition hover:bg-primary-50 sm:p-8">
+            <article key={opportunity.title} className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg sm:p-5">
               <div className="flex items-center justify-between gap-4">
-                <span className="text-xs font-extrabold text-primary-500">{String(index + 1).padStart(2, "0")}</span>
-                <span className="border border-primary-100 bg-primary-50 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-primary-700">
-                  {opportunity.type}
-                </span>
+                <span className="text-xs font-extrabold text-blue-500">{String(index + 1).padStart(2, "0")}</span>
+                <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-blue-700">{opportunity.type}</span>
               </div>
-              <h2 className="mt-8 font-(family-name:--font-sora) text-2xl font-bold text-slate-950">{opportunity.title}</h2>
-              <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-primary-600">{opportunity.mode}</p>
-              <p className="mt-5 text-sm leading-7 text-slate-600">{opportunity.text}</p>
-              <div className="mt-6 border-t border-slate-100 pt-5">
-                <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-slate-400">Ideal for</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{opportunity.idealFor}</p>
-              </div>
-              <a
-                href={`mailto:${site.email}?subject=${encodeURIComponent(`Sensei India - ${opportunity.title}`)}`}
-                className="mt-auto pt-7 text-sm font-bold text-primary-700 transition group-hover:translate-x-1"
-              >
-                Express interest →
-              </a>
+              <h2 className="mt-4 font-(family-name:--font-sora) text-lg font-bold text-slate-950">{opportunity.title}</h2>
+              <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-blue-600">{opportunity.mode}</p>
+              <p className="mt-4 text-sm leading-6 text-slate-600">{opportunity.text}</p>
+              <a href="#apply" className="mt-auto pt-6 text-sm font-bold text-blue-700 transition group-hover:translate-x-1">Express interest →</a>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="Why Sensei India"
-          title="A thoughtful place to do education work"
-          text="We are building a culture where expertise matters, communication is respected and every decision begins with the learner."
-        />
-
-        <div className="mx-auto mt-10 grid max-w-7xl gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((benefit) => (
-            <article key={benefit.title} className="bg-white p-6 sm:p-7">
-              <span className="font-(family-name:--font-sora) text-xs font-extrabold text-primary-500">{benefit.number}</span>
-              <h2 className="mt-5 font-(family-name:--font-sora) text-lg font-bold text-slate-950">{benefit.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{benefit.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl border border-slate-200 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="bg-primary-950 p-8 text-white sm:p-10 lg:p-12">
-            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary-300">What we value</p>
-            <h2 className="mt-3 font-(family-name:--font-sora) text-3xl font-bold">Clarity, care and professional responsibility</h2>
-            <p className="mt-5 text-sm leading-7 text-white/65 sm:text-base">
-              Expertise is essential, but effective education also depends on
-              empathy, preparation, reliability and the ability to create a
-              safe space for questions.
-            </p>
+      <section className="border-y border-slate-200 bg-slate-50 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-blue-600 sm:text-xs">Application journey</p>
+            <h2 className="mt-2.5 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.035em] text-slate-950 sm:text-3xl">A clear and respectful process</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">We review each profile carefully and set honest expectations about suitable opportunities.</p>
           </div>
-          <div className="grid gap-px bg-slate-200 sm:grid-cols-2">
-            {qualities.map((quality) => (
-              <div key={quality} className="flex items-start gap-4 bg-white p-5 sm:p-6">
-                <span className="grid h-8 w-8 shrink-0 place-items-center bg-primary-50 text-xs font-extrabold text-primary-700">✓</span>
-                <p className="pt-1 text-sm font-semibold leading-6 text-slate-700">{quality}</p>
-              </div>
+          <ol className="mt-6 grid gap-3 sm:mt-7 md:grid-cols-3 lg:gap-4">
+            {applicationSteps.map((step, index) => (
+              <li key={step.title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                <span className="grid h-9 w-9 place-items-center rounded-lg bg-blue-600 text-xs font-extrabold text-white">{index + 1}</span>
+                <h3 className="mt-3.5 font-(family-name:--font-sora) text-base font-bold text-slate-950 sm:text-lg">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{step.text}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      <section className="bg-primary-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="Application journey"
-          title="A clear and respectful process"
-          text="Our review process helps us understand where your experience fits while setting honest expectations about available opportunities."
-        />
-
-        <div className="mx-auto mt-10 grid max-w-7xl gap-px bg-primary-200 sm:grid-cols-2 lg:grid-cols-4">
-          {applicationSteps.map((step, index) => (
-            <article key={step.title} className="bg-white p-6 sm:p-7">
-              <span className="grid h-10 w-10 place-items-center bg-primary-500 font-(family-name:--font-sora) text-xs font-extrabold text-white">{index + 1}</span>
-              <h2 className="mt-5 font-(family-name:--font-sora) text-lg font-bold text-slate-950">{step.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{step.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+      <section className="border-t border-slate-200 bg-slate-50 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-7xl items-start gap-7 lg:grid-cols-[0.68fr_1.32fr] lg:gap-14">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary-600">Joining FAQs</p>
-            <h2 className="mt-3 font-(family-name:--font-sora) text-3xl font-bold tracking-[-0.035em] text-slate-950 sm:text-4xl">Before you introduce yourself</h2>
-            <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">A few useful details about eligibility, experience and the expression-of-interest process.</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-blue-600 sm:text-xs">Joining FAQs</p>
+            <h2 className="mt-2.5 font-(family-name:--font-sora) text-2xl font-bold tracking-[-0.035em] text-slate-950 sm:text-3xl">Before you introduce yourself</h2>
+            <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">Useful details about eligibility, experience and the expression-of-interest process.</p>
           </div>
           <FaqAccordion faqs={joinFaqs} />
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl bg-primary-950 px-7 py-12 text-center text-white sm:px-10 sm:py-16">
-        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary-300">Introduce yourself</p>
-        <h2 className="mx-auto mt-3 max-w-3xl font-(family-name:--font-sora) text-3xl font-bold sm:text-4xl">Tell us how you would like to contribute</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/65">Email your CV or profile with your expertise, experience, location, time zone and availability. We will respond when a suitable opportunity aligns with your background.</p>
-        <a href={applicationHref} className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-primary-500 transition hover:-translate-y-0.5 hover:bg-primary-50">Email Your Profile <span aria-hidden="true">→</span></a>
+      <section id="apply" className="scroll-mt-20 px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:pb-12">
+        <div className="mx-auto grid max-w-7xl items-start gap-7 rounded-2xl bg-blue-50 p-5 sm:p-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10 lg:p-9">
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-blue-600">Introduce yourself</p>
+            <h2 className="mt-2 font-(family-name:--font-sora) text-xl font-bold text-slate-950 sm:text-2xl">Prepare your application</h2>
+            <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">Complete the form once, then open a ready-to-send draft in Gmail or Outlook. Attach your CV before sending.</p>
+          </div>
+          <JoinApplicationForm destinationEmail={site.email} />
+        </div>
       </section>
     </main>
   );
